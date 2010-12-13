@@ -1,0 +1,54 @@
+.Version History
+1.0: (2007-07-17)
+- Initial release
+
+1.1: (2007-07-22)
+- Added the recount console-options menu to the right click menu.
+- Added a reset window position option to the icon double-click event.
+
+1.2: (2007-07-23)
+- Added menu option to select data view modes.
+- Created custom icon for RecountFu - to differentiate from DamageMetersFu.
+
+3.1: (2007-09-22)
+- Updated menu options to match current "slash" command options.
+- Added German localisation text for the tooltip. (Supplied by 3rd party.)
+
+3.2: (2007-09-26)
+- Updated TOC file "Interface" value to 20200 for the release of the 2.2 client patch.
+
+3.3 (2007-10-07)
+- Added DPS output to RecountFu text and tooltip as submitted by T.I.
+
+3.4 (2007-11-06)
+- Updated tooltip options and added "time spent in last battle" functions submitted by T.I.
+
+3.5 (2007-11-14)
+- Updated TOC file "Interface" value to 20300 for the release of the 2.3 client patch.
+
+3.6 (2008-10-18)
+- Updated TOC file "Interface" value to 30000 for the release of the 3.0.2 client patch.
+
+3.6 (2008-10-18)
+- Updated the embeds.xml reference to Crayon-2.0 library.
+
+3.7 (2009-04-16)
+- Updated TOC file "Interface" value to 30100 for the release of the 3.1 client patch.
+
+3.8 (2009-08-23)
+- Updated TOC file "Interface" value to 30200 for the release of the 3.2 client patch.
+
+3.9 (2009-08-30)
+- Corrected pkgmeta config for the Fubar Plugin library upon advisement.
+
+3.10 (2009-08-30)
+- Corrected pkgmeta config for the Dewdrop and CrayonLib libraries upon advisement.
+
+3.11 (2009-12-08)
+- Updated TOC file "Interface" value to 30300 for the release of the 3.1 client patch.
+
+3.12 (2010-10-13)
+- Updated TOC file "Interface" value to 40000 for the release of the 4.0.1 client patch.
+
+3.13 (2010-10-16)
+- Fixed Dewdrop references, as reported by DanoPDX. (Many thanks!)

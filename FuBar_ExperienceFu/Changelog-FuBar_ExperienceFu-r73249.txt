@@ -1,0 +1,15 @@
+------------------------------------------------------------------------
+r73249 | kuja | 2008-05-09 19:48:15 -0400 (Fri, 09 May 2008) | 2 lines
+Changed paths:
+   M /trunk/FuBar_ExperienceFu/ExperienceFuLocals-deDE.lua
+
+FuBar_ExperienceFu: deDE update
+
+------------------------------------------------------------------------
+r72184 | scorpio0920 | 2008-04-30 09:51:54 -0400 (Wed, 30 Apr 2008) | 2 lines
+Changed paths:
+   M /trunk/FuBar_ExperienceFu/ExperienceFuLocals-zhTW.lua
+
+FuBar_ExperienceFu:
+- Update zhTW localization.
+------------------------------------------------------------------------

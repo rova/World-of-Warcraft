@@ -1,0 +1,43 @@
+## Interface: 40000
+## Name: FuBar_RecountFu
+## Title: FuBar - |cffffffffRecount|r|cff00ff00Fu|r
+## Notes: A FuBar plugin to show Recount.
+## Notes-deDE: FuBar Plugin für Recount.
+## Notes-zhCN: ?? FuBar plugin ???? Recount
+## Notes-zhTW: ?? FuBar plugin ???? Recount
+## Notes-ruRU: FuBar-?????? ??? Recount.
+## Version: 3.13
+## X-Category: Combat
+## X-Date: 2010-10-16
+## X-eMail: broliant@converge-dh.com
+## X-Website: http://www.converge-dh.com/
+## Author: Broliant
+## Dependencies: Recount, FuBar
+## SavedVariables: RecountFuDB
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: v3.10-release
+## X-Curse-Project-Name: FuBar_RecountFu
+## X-Curse-Project-ID: fu-bar_recount-fu
+## X-Curse-Repository-ID: wow/fu-bar_recount-fu/mainline
+## X-Curse-Packaged-Version: v3.13-release
+## X-Curse-Project-Name: FuBar_RecountFu
+## X-Curse-Project-ID: fu-bar_recount-fu
+## X-Curse-Repository-ID: wow/fu-bar_recount-fu/mainline
+
+## X-Localizations: enUS, enGB, deDE, zhCN, zhTW, koKR, ruRU
+## X-CompatibleLocales: enUS, enGB, deDE, frFR, esES, esMX, zhCN, zhTW, koKR, ruRU
+
+libs\AceLibrary\AceLibrary.lua
+libs\AceOO-2.0\AceOO-2.0.lua
+libs\AceAddon-2.0\AceAddon-2.0.lua
+libs\AceEvent-2.0\AceEvent-2.0.lua
+libs\AceDB-2.0\AceDB-2.0.lua
+libs\AceConsole-2.0\AceConsole-2.0.lua
+libs\AceLocale-2.2\AceLocale-2.2.lua
+libs\Crayon-2.0\Crayon-2.0.lua
+libs\Dewdrop-2.0\Dewdrop-2.0.lua
+libs\Tablet-2.0\Tablet-2.0.lua
+libs\FuBarPlugin-2.0\FuBarPlugin-2.0.lua
+
+RecountFu.lua
+RecountFu_Options.lua

@@ -1,0 +1,33 @@
+------------------------------------------------------------------------
+r87 | broliant | 2010-10-16 19:55:45 +0000 (Sat, 16 Oct 2010) | 2 lines
+Changed paths:
+   A /tags/v3.13-release (from /trunk:86)
+
+FuBar_RecountFu:
+- 
+------------------------------------------------------------------------
+r86 | broliant | 2010-10-16 19:55:19 +0000 (Sat, 16 Oct 2010) | 3 lines
+Changed paths:
+   M /trunk/FuBar_RecountFu.toc
+   M /trunk/changelog.txt
+
+FuBar_RecountFu:
+3.13 (2010-10-16)
+- Fixed Dewdrop references, as reported by DanoPDX. (Many thanks!)
+------------------------------------------------------------------------
+r85 | broliant | 2010-10-16 19:53:00 +0000 (Sat, 16 Oct 2010) | 3 lines
+Changed paths:
+   M /trunk/.pkgmeta
+
+FuBar_RecountFu:
+- Corrected .pkgmeta to correctly reference Dewdrop library.
+- Reported by: DanoPDX (many thanks!)
+------------------------------------------------------------------------
+r83 | broliant | 2010-10-13 06:17:49 +0000 (Wed, 13 Oct 2010) | 2 lines
+Changed paths:
+   M /trunk/FuBar_RecountFu.toc
+   M /trunk/changelog.txt
+
+FuBar_RecountFu:
+- - Updated TOC file "Interface" value to 40000 for the release of the 4.0.1 client patch.
+------------------------------------------------------------------------
