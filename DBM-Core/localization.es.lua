@@ -1,7 +1,7 @@
 ﻿if GetLocale() ~= "esES" and GetLocale() ~= "esMX" then return end
 
 DBM_CORE_NEED_SUPPORT				= "¿Eres bueno programando o con los idiomas? Si es así, el Equipo DBM necesita tu ayuda para mantener el DBM como el mejor BossMod del WoW. Únete al equipo visitando www.deadlybossmods.com o enviando un mensaje a tandanu@deadlybossmods.com o nitram@deadlybossmods.com."
-DBM_HOW_TO_USE_MOD					= "Bienvenido a DBM. Para acceder a las opciones escribe /dbm en tu chat para empezar a configurarlo. Puedes cargar las zonas manualmente para configurar las opciones específicas de cada Boss a tu gusto. DBM intenta hacer esto escaneando tu clase la primera vez que se inicia, pero quizás quieras más alertas de las que necesita tu clase. Muchos usuarios solicitan avisos que ya existen pero están desactivados por defecto, especialmente avisos para tanques."
+DBM_HOW_TO_USE_MOD					= "Bienvenido a DBM. Para acceder a las opciones escribe /dbm en tu chat para empezar a configurarlo. Puedes cargar las zonas manualmente para configurar las opciones específicas de cada Boss a tu gusto. DBM intenta hacer esto escaneando tu clase la primera vez que se inicia, pero quizás quieras más alertas de las que necesita tu clase."
 
 DBM_CORE_LOAD_MOD_ERROR				= "Error al cargar modulo %s: %s"
 DBM_CORE_LOAD_MOD_SUCCESS			= "Cargado modulo de '%s' !"
@@ -151,7 +151,7 @@ DBM_CORE_AUTO_ANNOUNCE_OPTIONS = {
 DBM_CORE_AUTO_SPEC_WARN_OPTIONS = {
 	spell 	= "Mostrar aviso especial para $spell:%d",
 	dispel 	= "Mostrar aviso especial para dispelear/robar hechizo \n $spell:%d",
-	interupt= "Mostrar aviso especial para interrumpir $spell:%d",
+	interrupt= "Mostrar aviso especial para interrumpir $spell:%d",
 	you 	= "Mostrar aviso especial cuando te afecta \n $spell:%d",
 	target 	= "Mostrar aviso especial cuando a alguien le afecta \n $spell:%d",
 	close 	= "Mostrar aviso especial cuando a alguien cerca de ti \n le afecta $spell:%d",
@@ -164,7 +164,7 @@ DBM_CORE_AUTO_SPEC_WARN_OPTIONS = {
 DBM_CORE_AUTO_SPEC_WARN_TEXTS = {
 	spell = "%s",
 	dispel = "%s ¡dispelea ahora!",
-	interupt = "%s ¡interrumpe ahora!",
+	interrupt = "%s ¡interrumpe ahora!",
 	you = "%s en ti!",
 	target = "%s en %%s",
 	close = "%s en %%s cerca de ti",

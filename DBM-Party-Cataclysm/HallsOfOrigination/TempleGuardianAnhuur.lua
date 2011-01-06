@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("TempleGuardianAnhuur", "DBM-Party-Cataclysm", 4)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision:$"):sub(12, -3))
+mod:SetRevision(("$Revision: 4816 $"):sub(12, -3))
 mod:SetCreatureID(39425)
 mod:SetZone()
 
@@ -24,7 +24,7 @@ local specWarnLight	= mod:NewSpecialWarningMove(75117)
 -- Divine Reckoning .. icon ? .. arrow ?
 
 
-local prewarnShield
+local prewarnShield = false
 local spamLight = 0
 function mod:OnCombatStart(delay)
 	prewarnShield = false
@@ -41,7 +41,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:SPELL_DAMAGE(args)
-	if args:IsSpellID(75117) and GetTime() - spamLight > 5 and args:IsPlayer() then
+	if args:IsSpellID(75117, 94951) and GetTime() - spamLight > 5 and args:IsPlayer() then
 		specWarnLight:Show()
 	end
 end

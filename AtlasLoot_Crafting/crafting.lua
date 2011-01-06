@@ -58,6 +58,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 ----- Axesmith
 ----- Hammersmith
 ----- Swordsmith
+----- Cataclysm Vendor Sold Plans
 ---- Cooking
 ---- Enchanting
 ----- Boots
@@ -71,6 +72,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 ----- 1 Hand Weapons
 ----- Staves
 ----- Miscellaneous
+----- Cataclysm Vendor Sold Formulas
 ---- Engineering
 ---- First Aid
 ---- Inscription
@@ -507,35 +509,52 @@ local SPELLFIRE = GetSpellInfo(26797);
 		--- Archaeology ---
 		-------------------
 
-	AtlasLoot_Data["Archaeology"] = {
+	AtlasLoot_Data["ArchaeologyArmorAndWeapons"] = {
 		["Normal"] = {
 			{
 				{ 1, 64643, "", "=q4=Queen Azshara's Dressing Gown", "=ds=#s5#, #a1#"};
 				{ 2, 64644, "", "=q4=Headdress of the First Shaman", "=ds=#s1#, #a3#"};
 				{ 3, 64904, "", "=q4=Ring of the Boy Emperor", "=ds=#s13#"};
-				{ 5, 64881, "", "=q4=Pendant of the Scarab Storm", "=ds=#s14#"};
-				{ 5, 64645, "", "=q4=Tyrande's Favorite Doll", "=ds=#s14#"};
-				{ 6, 64885, "", "=q4=Scimitar of the Sirocco", "=ds=#h1#, #w10#"};
-				{ 7, 64377, "", "=q4=Zin'rokh, Destroyer of Worlds", "=ds=#h2#, #w10#"};
+				{ 4, 64645, "", "=q4=Tyrande's Favorite Doll", "=ds=#s14#"};
+				{ 5, 64885, "", "=q4=Scimitar of the Sirocco", "=ds=#h1#, #w10#"};
+				{ 6, 64377, "", "=q4=Zin'rokh, Destroyer of Worlds", "=ds=#h2#, #w10#"};
+				{ 7, 64460, "", "=q4=Nifflevar Bearded Axe", "=ds=#h1#, #w1#"};
 				{ 8, 64880, "", "=q4=Staff of Ammunae", "=ds=#w9#"};
 				{ 9, 64489, "", "=q4=Staff of Sorceror-Thane Thaurissan", "=ds=#w9#"};
-				{ 10, 60954, "", "=q4=Fossilized Raptor", "=ds=#e12#"};
-				{ 11, 64883, "", "=q4=Scepter of Azj'Aqir", "=ds=#e12#"};
-				{ 12, 64372, "", "=q3=Clockwork Gnome", "=ds=#e13#"};
-				{ 13, 60955, "", "=q3=Fossilized Hatchling", "=ds=#e13#"};
-				{ 14, 60847, "", "=q4=Crawling Claw", "=ds=#e13#"};
-				{ 15, 64481, "", "=q4=Blessing of the Old God", "=ds="};
-				{ 16, 64646, "", "=q4=Bones of Transformation", "=ds="};
-				{ 17, 60847, "", "=q4=Crawling Claw", "=ds=#e13#"};
-				{ 18, 64460, "", "=q4=Nifflevar Bearded Axe", "=ds=#h1#, #w1#"};
-				{ 19, 64881, "", "=q4=Pendant of the Scarab Storm", "=ds="};
-				{ 20, 64482, "", "=q4=Puzzle Box of Yogg-Saron", "=ds="};
-				{ 21, 64651, "", "=q4=Wisp Amulet", "=ds="};
 			};
 		};
 		info = {
 			name = "Archaeology",
-			module = moduleName, menu = "CRAFTINGMENU"
+			module = moduleName, menu = "ARCHAEOLOGYMENU"
+		};
+	};
+
+	AtlasLoot_Data["ArchaeologyMisc"] = {
+		["Normal"] = {
+			{
+				{ 1, 67538, "", "=q4=Recipe: Vial of the Sands", "=ds=#p1# (525)"};
+				{ 2, 64481, "", "=q4=Blessing of the Old God", "=ds="};
+				{ 3, 64646, "", "=q4=Bones of Transformation", "=ds="};
+				{ 4, 64881, "", "=q4=Pendant of the Scarab Storm", "=ds="};
+				{ 5, 64482, "", "=q4=Puzzle Box of Yogg-Saron", "=ds="};
+				{ 6, 64651, "", "=q4=Wisp Amulet", "=ds="};
+				{ 7, 64456, "", "=q3=Arrival of the Naaru", "=ds="};
+				{ 8, 64373, "", "=q3=Chalice of the Mountain Kings", "=ds="};
+				{ 9, 64361, "", "=q3=Druid and Priest Statue Set", "=ds="};
+				{ 10, 64358, "", "=q3=Highborne Soul Mirror", "=ds="};
+				{ 11, 64383, "", "=q3=Kaldorei Wind Chimes", "=ds="};
+				{ 12, 64488, "", "=q3=The Innkeeper's Daughter", "=ds="};
+				{ 13, 64457, "", "=q3=The Last Relic of Argus", "=ds="};
+				{ 16, 60847, "", "=q4=Crawling Claw", "=ds=#e13#"};
+				{ 17, 60954, "", "=q4=Fossilized Raptor", "=ds=#e12#"};
+				{ 18, 64883, "", "=q4=Scepter of Azj'Aqir", "=ds=#e12#"};
+				{ 19, 64372, "", "=q3=Clockwork Gnome", "=ds=#e13#"};
+				{ 20, 60955, "", "=q3=Fossilized Hatchling", "=ds=#e13#"};
+			};
+		};
+		info = {
+			name = "Archaeology",
+			module = moduleName, menu = "ARCHAEOLOGYMENU"
 		};
 	};
 
@@ -1209,13 +1228,14 @@ local SPELLFIRE = GetSpellInfo(26797);
 				{ 15, "s14380", "11144", "=q1=Truesilver Rod", "=ds=#sr# 200"};
 				{ 16, "s14379", "11128", "=q1=Golden Rod", "=ds=#sr# 150"};
 				{ 17, "s7818", "6338", "=q1=Silver Rod", "=ds=#sr# 100"};
-				{ 19, "s16639", "12644", "=q1=Dense Grinding Stone", "=ds=#sr# 250"};
-				{ 20, "s9920", "7966", "=q1=Solid Grinding Stone", "=ds=#sr# 200"};
-				{ 21, "s3337", "3486", "=q1=Heavy Grinding Stone", "=ds=#sr# 125"};
-				{ 22, "s3326", "3478", "=q1=Coarse Grinding Stone", "=ds=#sr# 75"};
-				{ 23, "s3320", "3470", "=q1=Rough Grinding Stone", "=ds=#sr# 25"};
-				{ 25, "s11454", "9060", "=q1=Inlaid Mithril Cylinder", "=ds=#sr# 200"};
-				{ 26, "s8768", "7071", "=q1=Iron Buckle", "=ds=#sr# 150"};
+				{ 19, "s76178", "65365", "=q1=Folded Obsidium", "=ds=#sr# 425"};
+				{ 20, "s16639", "12644", "=q1=Dense Grinding Stone", "=ds=#sr# 250"};
+				{ 21, "s9920", "7966", "=q1=Solid Grinding Stone", "=ds=#sr# 200"};
+				{ 22, "s3337", "3486", "=q1=Heavy Grinding Stone", "=ds=#sr# 125"};
+				{ 23, "s3326", "3478", "=q1=Coarse Grinding Stone", "=ds=#sr# 75"};
+				{ 24, "s3320", "3470", "=q1=Rough Grinding Stone", "=ds=#sr# 25"};
+				{ 26, "s11454", "9060", "=q1=Inlaid Mithril Cylinder", "=ds=#sr# 200"};
+				{ 27, "s8768", "7071", "=q1=Iron Buckle", "=ds=#sr# 150"};
 			};
 		};
 		info = {
@@ -1317,6 +1337,53 @@ local SPELLFIRE = GetSpellInfo(26797);
 		};
 		info = {
 			name = SWORDSMITH,
+			module = moduleName, menu = "SMITHINGMENU", instance = "Blacksmithing",
+		};
+	};
+
+	AtlasLoot_Data["SmithingCataVendor"] = {
+		["Normal"] = {
+			{
+				{ 1, 66117, "", "=q1=Plans: Bloodied Pyrium Bracers", "=ds=#p2# (500)", "20 #elementiumbar#" },
+				{ 2, 66103, "", "=q1=Plans: Pyrium Weapon Chain", "=ds=#p2# (500)", "20 #elementiumbar#" },
+				{ 3, 66118, "", "=q1=Plans: Bloodied Pyrium Gauntlets", "=ds=#p2# (505)", "20 #elementiumbar#" },
+				{ 4, 66125, "", "=q1=Plans: Ornate Pyrium Bracers", "=ds=#p2# (505)", "20 #elementiumbar#" },
+				{ 5, 66126, "", "=q1=Plans: Ornate Pyrium Gauntlets", "=ds=#p2# (510)", "20 #elementiumbar#" },
+				{ 6, 66119, "", "=q1=Plans: Bloodied Pyrium Belt", "=ds=#p2# (510)", "20 #elementiumbar#" },
+				{ 7, 66107, "", "=q1=Plans: Elementium Girdle of Pain", "=ds=#p2# (510)", "20 #elementiumbar#" },
+				{ 8, 66105, "", "=q1=Plans: Hardened Elementium Girdle", "=ds=#p2# (510)", "20 #elementiumbar#" },
+				{ 9, 66109, "", "=q1=Plans: Light Elementium Belt", "=ds=#p2# (510)", "20 #elementiumbar#" },
+				{ 10, 66127, "", "=q1=Plans: Ornate Pyrium Belt", "=ds=#p2# (510)", "20 #elementiumbar#" },
+				{ 11, 66120, "", "=q1=Plans: Bloodied Pyrium Boots", "=ds=#p2# (515)", "2 #hardenedelementiumbar#" },
+				{ 12, 67603, "", "=q1=Plans: Elementium Gutslicer", "=ds=#p2# (515)", "2 #hardenedelementiumbar#" },
+				{ 13, 66113, "", "=q1=Plans: Elementium Bonesplitter", "=ds=#p2# (515)", "2 #hardenedelementiumbar#" },
+				{ 14, 66106, "", "=q1=Plans: Elementium Deathplate", "=ds=#p2# (515)", "2 #hardenedelementiumbar#" },
+				{ 15, 66111, "", "=q1=Plans: Elementium Hammer", "=ds=#p2# (515)", "2 #hardenedelementiumbar#" },
+				{ 16, 66104, "", "=q1=Plans: Hardened Elementium Hauberk", "=ds=#p2# (515)", "2 #hardenedelementiumbar#" },
+				{ 17, 66108, "", "=q1=Plans: Light Elementium Chestguard", "=ds=#p2# (515)", "2 #hardenedelementiumbar#" },
+				{ 18, 66128, "", "=q1=Plans: Ornate Pyrium Boots", "=ds=#p2# (515)", "2 #hardenedelementiumbar#" },
+				{ 19, 66121, "", "=q1=Plans: Bloodied Pyrium Shoulders", "=ds=#p2# (520)", "2 #hardenedelementiumbar#" },
+				{ 20, 66115, "", "=q1=Plans: Elementium Earthguard", "=ds=#p2# (520)", "2 #hardenedelementiumbar#" },
+				{ 21, 66112, "", "=q1=Plans: Elementium Poleaxe", "=ds=#p2# (520)", "2 #hardenedelementiumbar#" },
+				{ 22, 66114, "", "=q1=Plans: Elementium Shank", "=ds=#p2# (520)", "2 #hardenedelementiumbar#" },
+				{ 23, 66110, "", "=q1=Plans: Elementium Spellblade", "=ds=#p2# (520)", "2 #hardenedelementiumbar#" },
+				{ 24, 66116, "", "=q1=Plans: Elementium Stormshield", "=ds=#p2# (520)", "2 #hardenedelementiumbar#" },
+				{ 25, 66129, "", "=q1=Plans: Ornate Pyrium Shoulders", "=ds=#p2# (520)", "2 #hardenedelementiumbar#" },
+				{ 26, 67606, "", "=q1=Plans: Forged Elementium Mindcrusher", "=ds=#p2# (520)", "5 #pyriumbar#" },
+				{ 27, 66124, "", "=q1=Plans: Bloodied Pyrium Breastplate", "=ds=#p2# (525)", "5 #pyriumbar#" },
+				{ 28, 66123, "", "=q1=Plans: Bloodied Pyrium Helm", "=ds=#p2# (525)", "5 #pyriumbar#" },
+				{ 29, 66122, "", "=q1=Plans: Bloodied Pyrium Legguards", "=ds=#p2# (525)", "5 #pyriumbar#" },
+				{ 30, 66100, "", "=q1=Plans: Ebonsteel Belt Buckle", "=ds=#p2# (525)", "5 #pyriumbar#" },
+			};
+			{
+				{ 1, 66132, "", "=q1=Plans: Ornate Pyrium Breastplate", "=ds=#p2# (525)", "5 #pyriumbar#" },
+				{ 2, 66131, "", "=q1=Plans: Ornate Pyrium Helm", "=ds=#p2# (525)", "5 #pyriumbar#" },
+				{ 3, 66130, "", "=q1=Plans: Ornate Pyrium Legguards", "=ds=#p2# (525)", "5 #pyriumbar#" },
+				{ 4, 66101, "", "=q1=Plans: Pyrium Shield Spike", "=ds=#p2# (525)", "5 #pyriumbar#" },
+			};
+		};
+		info = {
+			name = BLACKSMITHING..": "..AL["Cataclysm Vendor Sold Plans"],
 			module = moduleName, menu = "SMITHINGMENU", instance = "Blacksmithing",
 		};
 	};
@@ -2295,6 +2362,37 @@ local SPELLFIRE = GetSpellInfo(26797);
 		};
 		info = {
 			name = ENCHANTING..": "..BabbleInventory["Miscellaneous"],
+			module = moduleName, menu = "ENCHANTINGMENU", instance = "Enchanting",
+		};
+	};
+
+	AtlasLoot_Data["EnchantingCataVendor"] = {
+		["Normal"] = {
+			{
+				{ 1, 65359, "", "=q1=Formula: Runed Elementium Rod", "=ds=#p4# (515)", "1 #heavenlyshard#" },
+				{ 2, 64411, "", "=q2=Formula: Enchant Boots - Assassin's Step", "=ds=#p4# (525)", "5 #heavenlyshard#" },
+
+				{ 3, 64412, "", "=q2=Formula: Enchant Boots - Lavawalker", "=ds=#p4# (525)", "5 #heavenlyshard#" },
+				{ 4, 52738, "", "=q2=Formula: Enchant Bracer - Greater Critical Strike", "=ds=#p4# (525)", "5 #heavenlyshard#" },
+				{ 5, 64413, "", "=q2=Formula: Enchant Bracer - Greater Speed", "=ds=#p4# (525)", "5 #heavenlyshard#" },
+
+				{ 6, 52740, "", "=q2=Formula: Enchant Chest - Greater Stamina", "=ds=#p4# (525)", "5 #heavenlyshard#" },
+				{ 7, 52739, "", "=q2=Formula: Enchant Chest - Peerless Stats", "=ds=#p4# (525)", "5 #heavenlyshard#" },
+				{ 8, 52737, "", "=q2=Formula: Enchant Cloak - Greater Critical Strike", "=ds=#p4# (525)", "5 #heavenlyshard#" },
+
+				{ 9, 64414, "", "=q2=Formula: Enchant Gloves - Greater Mastery", "=ds=#p4# (525)", "5 #heavenlyshard#" },
+
+				{ 10, 64415, "", "=q2=Formula: Enchant Gloves - Mighty Strength", "=ds=#p4# (525)", "5 #heavenlyshard#" },
+
+				{ 11, 67312, "", "=q3=Formula: Magic Lamp", "=ds=#p4# (525)", "20 #hypnoticdust#" },
+
+				{ 12, 52736, "", "=q3=Formula: Enchant Weapon - Landslide", "=ds=#p4# (525)", "5 #maelstromcrystal#" },
+				{ 13, 52733, "", "=q3=Formula: Enchant Weapon - Power Torrent", "=ds=#p4# (525)", "5 #maelstromcrystal#" },
+				{ 14, 52735, "", "=q3=Formula: Enchant Weapon - Windwalk", "=ds=#p4# (525)", "5 #maelstromcrystal#" },
+			};
+		};
+		info = {
+			name = ENCHANTING..": "..AL["Cataclysm Vendor Sold Formulas"],
 			module = moduleName, menu = "ENCHANTINGMENU", instance = "Enchanting",
 		};
 	};
@@ -6632,7 +6730,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 	AtlasLoot_Data["CraftedWeapons"] = {
 		["Normal"] = {
 			{
-				{ 1, 49888, "", "=q4=Shadow's Edge", "=ds=#h4#, #w1#"};
+				{ 1, 49888, "", "=q4=Shadow's Edge", "=ds=#h2#, #w1#"};
 				{ 3, 0, "INV_Box_01", "=q6=#p2#", "=q1=#j54#"};
 				{ 4, 45085, "", "=q4=Titansteel Spellblade", "=ds=#h3#, #w4#"};
 				{ 5, 42435, "", "=q4=Titansteel Shanker", "=ds=#h1#, #w4#"};
@@ -6718,30 +6816,32 @@ local SPELLFIRE = GetSpellInfo(26797);
 				{ 3, 65415, "", "=q2=Recipe: Highland Spirits", "=ds=#p3# (450)"};
 				{ 4, 65407, "", "=q2=Recipe: Lavascale Fillet", "=ds=#p3# (450)"};
 				{ 5, 65409, "", "=q2=Recipe: Lavascale Minestrone", "=ds=#p3# (450)"};
-				{ 6, 65412, "", "=q2=Recipe: Lightly Fried Lurker", "=ds=#p3# (450)"};
-				{ 7, 65416, "", "=q2=Recipe: Lurker Lunch", "=ds=#p3# (450)"};
-				{ 8, 65410, "", "=q2=Recipe: Salted Eye", "=ds=#p3# (450)"};
-				{ 9, 65413, "", "=q2=Recipe: Seasoned Crab", "=ds=#p3# (450)"};
-				{ 10, 65414, "", "=q2=Recipe: Starfire Espresso", "=ds=#p3# (450)"};
-				{ 11, 65406, "", "=q2=Recipe: Whitecrest Gumbo", "=ds=#p3# (450)"};
-				{ 12, 65418, "", "=q2=Recipe: Hearty Seafood Soup", "=ds=#p3# (475)"};
-				{ 13, 65417, "", "=q2=Recipe: Pickled Guppy", "=ds=#p3# (475)"};
-				{ 14, 65419, "", "=q2=Recipe: Tender Baked Turtle", "=ds=#p3# (475)"};
-				{ 15, 65426, "", "=q2=Recipe: Baked Rockfish", "=ds=#p3# (500)"};
-				{ 16, 65427, "", "=q2=Recipe: Basilisk Liverdog", "=ds=#p3# (500)"};
-				{ 17, 65429, "", "=q2=Recipe: Beer-Basted Crocolisk", "=ds=#p3# (500)"};
-				{ 18, 65424, "", "=q2=Recipe: Blackbelly Sushi", "=ds=#p3# (500)"};
-				{ 19, 65430, "", "=q2=Recipe: Crocolisk Au Gratin", "=ds=#p3# (500)"};
-				{ 20, 65422, "", "=q2=Recipe: Delicious Sagefish Tail", "=ds=#p3# (500)"};
-				{ 21, 65423, "", "=q2=Recipe: Fish Fry", "=ds=#p3# (500)"};
-				{ 22, 65428, "", "=q2=Recipe: Grilled Dragon", "=ds=#p3# (500)"};
+				{ 6, 65416, "", "=q2=Recipe: Lurker Lunch", "=ds=#p3# (450)"};
+				{ 7, 65410, "", "=q2=Recipe: Salted Eye", "=ds=#p3# (450)"};
+				{ 8, 65413, "", "=q2=Recipe: Seasoned Crab", "=ds=#p3# (450)"};
+				{ 9, 65414, "", "=q2=Recipe: Starfire Espresso", "=ds=#p3# (450)"};
+				{ 10, 65406, "", "=q2=Recipe: Whitecrest Gumbo", "=ds=#p3# (450)"};
+				{ 11, 65418, "", "=q2=Recipe: Hearty Seafood Soup", "=ds=#p3# (475)"};
+				{ 12, 65417, "", "=q2=Recipe: Pickled Guppy", "=ds=#p3# (475)"};
+				{ 13, 65419, "", "=q2=Recipe: Tender Baked Turtle", "=ds=#p3# (475)"};
+				{ 14, 65426, "", "=q2=Recipe: Baked Rockfish", "=ds=#p3# (500)"};
+				{ 15, 65427, "", "=q2=Recipe: Basilisk Liverdog", "=ds=#p3# (500)"};
+				{ 16, 65429, "", "=q2=Recipe: Beer-Basted Crocolisk", "=ds=#p3# (500)"};
+				{ 17, 65424, "", "=q2=Recipe: Blackbelly Sushi", "=ds=#p3# (500)"};
+				{ 18, 65430, "", "=q2=Recipe: Crocolisk Au Gratin", "=ds=#p3# (500)"};
+				{ 19, 65422, "", "=q2=Recipe: Delicious Sagefish Tail", "=ds=#p3# (500)"};
+				{ 20, 65423, "", "=q2=Recipe: Fish Fry", "=ds=#p3# (500)"};
+				{ 21, 65428, "", "=q2=Recipe: Grilled Dragon", "=ds=#p3# (500)"};
+				{ 22, 65412, "", "=q2=Recipe: Lightly Fried Lurker", "=ds=#p3# (500)"};
 				{ 23, 65420, "", "=q2=Recipe: Mushroom Sauce Mudfish", "=ds=#p3# (500)"};
 				{ 24, 65421, "", "=q2=Recipe: Severed Sagefish Head", "=ds=#p3# (500)"};
 				{ 25, 65425, "", "=q2=Recipe: Skewered Eel", "=ds=#p3# (500)"};
 				{ 26, 65431, "", "=q2=Recipe: Chocolate Cookie", "=ds=#p3# (505)"};
 				{ 27, 65432, "", "=q2=Recipe: Fortune Cookie", "=ds=#p3# (525)"};
 				{ 28, 65433, "", "=q2=Recipe: South Island Iced Tea", "=ds=#p3# (525)"};
-				{ 30, 65513, "", "=q1=Crate of Tasty Meat", "=ds="};
+				{ 29, 65513, "", "=q1=Crate of Tasty Meat", "=ds="};
+				{ 30, 0, "", "=q1=Chef's Award", "=ds=#m17#"};
+				extraText = ": "..BabbleZone["Stormwind"] .." / "..BabbleZone["Orgrimmar"];
 			};
 			{
 				{ 1, 43035, "", "=q2=Recipe: Blackened Dragonfin", "=ds=#p3# (400)"};
@@ -6769,6 +6869,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 				{ 23, 43506, "", "=q2=Recipe: Small Feast", "=ds=#p3# (425)"};
 				{ 24, 43017, "", "=q2=Recipe: Fish Feast", "=ds=#p3# (450)"};
 				{ 26, 43016, "", "=q2=Dalaran Cooking Award", "=ds=#m17#"};
+				extraText = ": "..BabbleZone["Dalaran"];
 			};
 			{
 				{ 1, 46349, "", "=q3=Chef's Hat", "=ds=#s1#"};
@@ -6778,6 +6879,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 				{ 18, 33871, "", "=q3=Recipe: Stormchops", "=ds=#p3# (300)", "", ""};
 				{ 19, 44228, "", "=q1=Baby Spice", "=ds=", "", ""};
 				{ 20, 44114, "", "=q1=Old Spices", "=ds=", "", ""};
+				extraText = ": "..BabbleZone["Dalaran"];
 			};
 			{
 				{ 1, 33925, "", "=q3=Recipe: Delicious Chocolate Cake", "=ds=#p3# (1)", "", ""};
@@ -6786,6 +6888,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 				{ 4, 33875, "", "=q2=Recipe: Kibler's Bits", "=ds=#p3# (300)", "", ""};
 				{ 5, 33870, "", "=q2=Recipe: Skullfish Soup", "=ds=#p3# (325)", "", ""};
 				{ 6, 33873, "", "=q2=Recipe: Spicy Hot Talbuk", "=ds=#p3# (325)", "", ""};
+				extraText = ": "..BabbleZone["Shattrath"];
 			};
 		};
 		info = {
@@ -6823,6 +6926,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 				{ 21, 8827, "", "=q1=Elixir of Water Walking", "=ds=#e2#", "", ""};
 				{ 22, 46004, "", "=q1=Sealed Vial of Poison", "=ds=#m2#", "", ""};
 				{ 23, 48679, "", "=q1=Waterlogged Recipe", "=ds=#m2# #p3# (350)", "", ""};
+				extraText = ": "..BabbleZone["Dalaran"];
 			};
 			{
 				{ 1, 34837, "", "=q4=The 2 Ring", "=ds=#s13#", "", ""};
@@ -6842,6 +6946,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 				{ 21, 34109, "", "=q1=Weather-Beaten Journal", "=ds=#e10#", "", ""};
 				{ 22, 8827, "", "=q1=Elixir of Water Walking", "=ds=#e2#", "", ""};
 				{ 23, 34861, "", "=q1=Sharpened Fish Hook", "=ds=#e24#", "", ""};
+				extraText = ": "..BabbleZone["Terokkar Forest"];
 			};
 		};
 		info = {

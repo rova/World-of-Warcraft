@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("Chimaeron", "DBM-BlackwingDescent", 4)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision$"):sub(12, -3))
+mod:SetRevision(("$Revision: 4816 $"):sub(12, -3))
 mod:SetCreatureID(43296)
 mod:SetZone()
 
@@ -15,25 +15,24 @@ mod:RegisterEvents(
 	"UNIT_HEALTH"
 )
 
-local warnCausticSlime		= mod:NewSpellAnnounce(82935, 3)
-local warnBreak			= mod:NewAnnounce("WarnBreak", 3)
-local warnDoubleAttack		= mod:NewSpellAnnounce(88826, 4)
+local warnCausticSlime	= mod:NewSpellAnnounce(82935, 3)
+local warnBreak			= mod:NewAnnounce("WarnBreak", 3, 82881)
+local warnDoubleAttack	= mod:NewSpellAnnounce(88826, 4)
 local warnMassacre		= mod:NewSpellAnnounce(82848, 3)
 local warnFeud			= mod:NewSpellAnnounce(88872, 4)
-local warnPhase2Soon		= mod:NewAnnounce("WarnPhase2Soon", 3)
+local warnPhase2Soon	= mod:NewAnnounce("WarnPhase2Soon", 3)
 local warnPhase2		= mod:NewPhaseAnnounce(2)
 
 --local timerCausticSlime	= mod:NewNextTimer( ?? , 82935)
 local timerBreak		= mod:NewTargetTimer(60, 82881)
---local timerDoubleAttack	= mod:NewNextTimer( ?? , 82881)
 local timerMassacre		= mod:NewCastTimer(4, 82848)
-local timerMassacreNext		= mod:NewNextTimer(30, 82848)
+local timerMassacreNext	= mod:NewNextTimer(30, 82848)
 local timerFeud			= mod:NewBuffActiveTimer(30, 88872)
 local timerFeudNext		= mod:NewNextTimer(90, 88872)
 
-local specWarnBreak		= mod:NewSpecialWarningStack(82881, nil, 2)
+local specWarnBreak		= mod:NewSpecialWarningStack(82881, nil, 3)
 
-local prewarnedPhase2
+local prewarnedPhase2 = false
 function mod:OnCombatStart(delay)
 	timerMassacreNext:Start(-delay)
 	timerFeudNext:Start(-delay)
@@ -44,12 +43,14 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(82881) then
 		warnBreak:Show(args.spellName, args.destName, args.amount or 1)
 		timerBreak:Start(args.destName)
-		if args:IsPlayer() and (args.amount or 1) >= 2 then
+		if args:IsPlayer() and (args.amount or 1) >= 3 then
 			specWarnBreak:Show(args.amount)
 		end
-	elseif args:IsSpellID(82881) then
+	elseif args:IsSpellID(88826) then
 		warnDoubleAttack:Show()
 		-- timerDoubleAttack:Start()
+	elseif args:IsSpellID(82890) then
+		warnPhase2:Show()
 	end
 end
 

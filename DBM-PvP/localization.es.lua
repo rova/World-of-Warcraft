@@ -63,13 +63,12 @@ L:SetGeneralLocalization({
 L:SetTimerLocalization({
 	TimerStart		= "La batalla comezara en", 
 	TimerTower		= "%s",
-	TimerGY			= "%s",
+	TimerGY			= "%s"
 })
 
 L:SetMiscLocalization({
 	BgStart60		= "1 minuto para que dé comienzo la batalla por el Valle de Alterac.",
-	BgStart30		= "30 segundos para que dé comienzo la batalla por el Valle de Alterac.",
-	ZoneName		= "Valle de Alterac"
+	BgStart30		= "30 segundos para que dé comienzo la batalla por el Valle de Alterac."
 })
 
 L:SetOptionLocalization({
@@ -89,12 +88,11 @@ L:SetGeneralLocalization({
 })
 
 L:SetMiscLocalization({
-	BgStart60		= "La batalla por la Cuenca de Arathi comenzará en 1 minuto.",
-	BgStart30		= "La Batalla por la Cuenca de Arathi comenzará en 30 segundos.",
-	ZoneName 		= "Cuenca de Arathi",
+	BgStart60		= "La batalla comenzará en 1 minuto.",
+	BgStart30		= "La batalla comenzará en 30 segundos.",
 	ScoreExpr 		= "(%d+)/1600",
-	Alliance 		= "La Alianza",
-	Horde 			= "La Horda",
+	Alliance 		= "Alianza",
+	Horde 			= "Horda",
 	WinBarText 		= "%s ganara en",
 	BasesToWin 		= "Bases necesarias para ganar: %d",
 	Flag 			= "Bandera"
@@ -102,7 +100,7 @@ L:SetMiscLocalization({
 
 L:SetTimerLocalization({
 	TimerStart 		= "¡La batalla va Comenzar!", 
-	TimerCap 		= "%s",
+	TimerCap 		= "%s"
 })
 
 L:SetOptionLocalization({
@@ -133,20 +131,20 @@ L:SetMiscLocalization({
 	FlagReset 		= "La bandera se ha restablecido.",
 	FlagTaken 		= "¡ (.+) ha tomado la bandera!",
 	FlagCaptured 		= "¡La .+ ha%w+ ha capturado la bandera!",
-	FlagDropped 		= "¡Ha caído la bandera!",
+	FlagDropped 		= "¡Ha caído la bandera!"
 
 })
 
 L:SetTimerLocalization({
 	TimerStart 		= "¡La batalla va a Comenzar!", 
-	TimerFlag 		= "Bandera Restablecida",
+	TimerFlag 		= "Bandera Restablecida"
 })
 
 L:SetOptionLocalization({
 	TimerStart  		= "Mostrar tiempo para que comienze la Batalla.",
 	TimerWin 		= "Mostrar tiempo para que una faccion Gane la Batalla.",
 	TimerFlag 		= "Mostrar tiempo que tarda en restablecer la Bandera.",
-	ShowPointFrame 		= "Ver puntos que dara la bandera.",
+	ShowPointFrame 		= "Ver puntos que dara la bandera."
 })
 
 --------------------
@@ -159,9 +157,8 @@ L:SetGeneralLocalization({
 })
 
 L:SetMiscLocalization({
-	BgStart60 			= "La batalla por la Garganta Grito de Guerra comenzará en 1 minuto.",
-	BgStart30 			= "La batalla por la Garganta Grito de Guerra comenzará en 30 segundos. ¡Preparaos!",
-	ZoneName 			= "Garganta Grito de Guerra",
+	BgStart60 			= "La batalla comienza en 1 minuto.",
+	BgStart30 			= "La batalla comienza en 30 segundos. ¡Preparaos!",
 	Alliance 			= "Alianza",
 	Horde 				= "Horda",	
 	InfoErrorText 			= "The flag carrier targeting function will be restored when you are out of combat.",
@@ -170,19 +167,19 @@ L:SetMiscLocalization({
 	ExprFlagReturn 			= "¡(.+) ha devuelto la bandera de la (%w+) a su base!",
 	FlagAlliance 			= "Banderas capturadas por la Alianza: ",
 	FlagHorde			= "Banderas capturadas por la Horda: ",
-	FlagBase			= "Base",
+	FlagBase			= "Base"
 })
 
 L:SetTimerLocalization({
 	TimerStart 			= "La batalla va comenzar", 
-	TimerFlag 			= "La bandera se resetea en",
+	TimerFlag 			= "La bandera se resetea en"
 })
 
 L:SetOptionLocalization({
 	TimerStart  			= "Mostrar tiempo para que comienze la Batalla.",
 	TimerFlag			= "Mostrar tiempo que tarda en restablecer la Bandera.",
 	ShowFlagCarrier			= "Mostrar por donde va la bandera",
-	ShowFlagCarrierErrorNote 	= "Mostrar error de por donde va la bandera",
+	ShowFlagCarrierErrorNote 	= "Mostrar error de por donde va la bandera"
 })
 
 ------------------------
@@ -215,7 +212,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	ZoneName		= "Isla de la Conquista",
 	BgStart60		= "La batalla comenzará en 60 segundos.",
 	BgStart30		= "La batalla comenzará en 30 segundos.",
 	BgStart15		= "La batalla comenzará en 15 segundos.",

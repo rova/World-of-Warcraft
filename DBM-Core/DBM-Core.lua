@@ -42,10 +42,10 @@
 --  Globals/Default Options  --
 -------------------------------
 DBM = {
-	Revision = ("$Revision: 4605 $"):sub(12, -3),
-	Version = "4.64",
-	DisplayVersion = "4.64", -- the string that is shown as version
-	ReleaseRevision = 4605 -- the revision of the latest stable version that is available (for /dbm ver2)
+	Revision = ("$Revision: 4833 $"):sub(12, -3),
+	Version = "4.70",
+	DisplayVersion = "4.70", -- the string that is shown as version
+	ReleaseRevision = 4833 -- the revision of the latest stable version that is available (for /dbm ver2)
 }
 
 DBM_SavedOptions = {}
@@ -108,7 +108,7 @@ DBM.DefaultOptions = {
 	DontSendBossAnnounces = false,
 	DontSendBossWhispers = false,
 	DontSetIcons = false,
-	LatencyThreshold = 250,
+	LatencyThreshold = 200,
 	BigBrotherAnnounceToRaid = false,
 	SettingsMessageShown = false,
 	AlwaysShowSpeedKillTimer = true,
@@ -145,6 +145,7 @@ local loadOptions
 local loadModOptions
 local checkWipe
 local fireEvent
+local _, class = UnitClass("player")
 local is_cata = select(4, _G.GetBuildInfo()) >= 40000--4.0 PTR or Beta
 local is_china = select(4, _G.GetBuildInfo()) == 30200--Chinese wow (3.2.2) No one else should be on 3.2.x, screw private servers.
 local GetCurrentMapID
@@ -318,9 +319,9 @@ do
 	
 	function argsMT.__index:GetDestCreatureID()
 		if is_cata or is_china then
-			return tonumber(self.sourceGUID:sub(7, 10), 16) or 0
+			return tonumber(self.destGUID:sub(7, 10), 16) or 0
 		else
-			return tonumber(self.sourceGUID:sub(9, 12), 16) or 0
+			return tonumber(self.destGUID:sub(9, 12), 16) or 0
 		end
 	end
 	
@@ -434,8 +435,8 @@ do
 			elseif event == "SPELL_AURA_STOLEN" then
 				args.extraSpellId, args.extraSpellName, args.extraSpellSchool = select(4, ...)
 				args.auraType = select(7, ...)
-			elseif event == "SPELL_AURA_APPLIED" or event == "SPELL_AURA_REMOVED" then
-				args.auraType = select(4, ...)
+			elseif event == "SPELL_AURA_APPLIED" or event == "SPELL_AURA_REMOVED" or event == "SPELL_AURA_REFRESH" then
+				args.auraType, args.remainingPoints = select(4, ...)
 				args.sourceName = args.destName
 				args.sourceGUID = args.destGUID
 				args.sourceFlags = args.destFlags
@@ -1400,7 +1401,9 @@ end
 --  Load Boss Mods on Demand  --
 --------------------------------
 function DBM:ZONE_CHANGED_NEW_AREA()
-	SetMapToCurrentZone()--To Fix blizzard bug, sometimes map isn't loaded on disconnect or reloadui
+	if select(2, IsInInstance()) ~= "none" then
+		SetMapToCurrentZone()--To Fix blizzard bug, sometimes map isn't loaded on disconnect or reloadui
+	end
 	local zoneName = GetRealZoneText()
 	local zoneId = GetCurrentMapID()
 	LastZoneMapID = zoneId--Cache map on zone change.
@@ -2617,57 +2620,57 @@ end
 if is_cata then--It's Cataclysm
 	function bossModPrototype:IsMelee()
 		if UnitLevel("player") >= 69 then
-			return select(2, UnitClass("player")) == "ROGUE"
-			or select(2, UnitClass("player")) == "WARRIOR"
-			or select(2, UnitClass("player")) == "DEATHKNIGHT"
-			or (select(2, UnitClass("player")) == "PALADIN" and select(5, GetTalentTabInfo(1)) < 31)
-     		or (select(2, UnitClass("player")) == "SHAMAN" and select(5, GetTalentTabInfo(2)) >= 31)
-			or (select(2, UnitClass("player")) == "DRUID" and select(5, GetTalentTabInfo(2)) >= 31)
+			return class == "ROGUE"
+			or class == "WARRIOR"
+			or class == "DEATHKNIGHT"
+			or (class == "PALADIN" and select(5, GetTalentTabInfo(1)) < 31)
+     		or (class == "SHAMAN" and select(5, GetTalentTabInfo(2)) >= 31)
+			or (class == "DRUID" and select(5, GetTalentTabInfo(2)) >= 31)
 		else
-			return select(2, UnitClass("player")) == "ROGUE"
-			or select(2, UnitClass("player")) == "WARRIOR"
-			or select(2, UnitClass("player")) == "DEATHKNIGHT"
-			or (select(2, UnitClass("player")) == "PALADIN")
-     		or (select(2, UnitClass("player")) == "SHAMAN")
-			or (select(2, UnitClass("player")) == "DRUID")
+			return class == "ROGUE"
+			or class == "WARRIOR"
+			or class == "DEATHKNIGHT"
+			or class == "PALADIN"
+     		or class == "SHAMAN"
+			or class == "DRUID"
 		end
 	end
 
 	function bossModPrototype:IsRanged()
 		if UnitLevel("player") >= 69 then
-			return select(2, UnitClass("player")) == "MAGE"
-			or select(2, UnitClass("player")) == "HUNTER"
-			or select(2, UnitClass("player")) == "WARLOCK"
-			or select(2, UnitClass("player")) == "PRIEST"
-			or (select(2, UnitClass("player")) == "PALADIN" and select(5, GetTalentTabInfo(1)) >= 31)
-     		or (select(2, UnitClass("player")) == "SHAMAN" and select(5, GetTalentTabInfo(2)) < 31)
-			or (select(2, UnitClass("player")) == "DRUID" and select(5, GetTalentTabInfo(2)) < 31)
+			return class == "MAGE"
+			or class == "HUNTER"
+			or class == "WARLOCK"
+			or class == "PRIEST"
+			or (class == "PALADIN" and select(5, GetTalentTabInfo(1)) >= 31)
+     		or (class == "SHAMAN" and select(5, GetTalentTabInfo(2)) < 31)
+			or (class == "DRUID" and select(5, GetTalentTabInfo(2)) < 31)
 		else
-			return select(2, UnitClass("player")) == "MAGE"
-			or select(2, UnitClass("player")) == "HUNTER"
-			or select(2, UnitClass("player")) == "WARLOCK"
-			or select(2, UnitClass("player")) == "PRIEST"
-			or (select(2, UnitClass("player")) == "PALADIN")
-     		or (select(2, UnitClass("player")) == "SHAMAN")
-			or (select(2, UnitClass("player")) == "DRUID")
+			return class == "MAGE"
+			or class == "HUNTER"
+			or class == "WARLOCK"
+			or class == "PRIEST"
+			or class == "PALADIN"
+     		or class == "SHAMAN"
+			or class == "DRUID"
 		end
 	end
 
 	function bossModPrototype:IsManaUser()--Similar to ranged, but includes all paladins and all shamens and excludes hunters in cata
 		if UnitLevel("player") >= 69 then
-			return select(2, UnitClass("player")) == "MAGE"
-			or select(2, UnitClass("player")) == "WARLOCK"
-			or select(2, UnitClass("player")) == "PRIEST"
-			or (select(2, UnitClass("player")) == "PALADIN")
-     		or (select(2, UnitClass("player")) == "SHAMAN")
-			or (select(2, UnitClass("player")) == "DRUID" and select(5, GetTalentTabInfo(2)) < 31)
+			return class == "MAGE"
+			or class == "WARLOCK"
+			or class == "PRIEST"
+			or class == "PALADIN"
+     		or class == "SHAMAN"
+			or (class == "DRUID" and select(5, GetTalentTabInfo(2)) < 31)
 		else
-			return select(2, UnitClass("player")) == "MAGE"
-			or select(2, UnitClass("player")) == "WARLOCK"
-			or select(2, UnitClass("player")) == "PRIEST"
-			or (select(2, UnitClass("player")) == "PALADIN")
-     		or (select(2, UnitClass("player")) == "SHAMAN")
-			or (select(2, UnitClass("player")) == "DRUID")
+			return class == "MAGE"
+			or class == "WARLOCK"
+			or class == "PRIEST"
+			or class == "PALADIN"
+     		or class == "SHAMAN"
+			or class == "DRUID"
 		end
 	end
 
@@ -2689,87 +2692,87 @@ if is_cata then--It's Cataclysm
 
 	function bossModPrototype:IsTank()
 		if UnitLevel("player") >= 69 then
-			return (select(2, UnitClass("player")) == "WARRIOR" and select(5, GetTalentTabInfo(3)) >= 31)
-     		or (select(2, UnitClass("player")) == "DEATHKNIGHT" and IsDeathKnightTank())
-			or (select(2, UnitClass("player")) == "PALADIN" and select(5, GetTalentTabInfo(2)) >= 31)
-			or (select(2, UnitClass("player")) == "DRUID" and select(5, GetTalentTabInfo(2)) >= 31 and IsDruidTank())
+			return (class == "WARRIOR" and select(5, GetTalentTabInfo(3)) >= 31)
+     		or (class == "DEATHKNIGHT" and IsDeathKnightTank())
+			or (class == "PALADIN" and select(5, GetTalentTabInfo(2)) >= 31)
+			or (class == "DRUID" and select(5, GetTalentTabInfo(2)) >= 31 and IsDruidTank())
 		else
-			return (select(2, UnitClass("player")) == "WARRIOR")
-     		or (select(2, UnitClass("player")) == "DEATHKNIGHT")
-			or (select(2, UnitClass("player")) == "PALADIN")
-			or (select(2, UnitClass("player")) == "DRUID")
+			return class == "WARRIOR"
+     		or class == "DEATHKNIGHT"
+			or class == "PALADIN"
+			or class == "DRUID"
 		end
 	end
 
 	function bossModPrototype:IsHealer()
 		if UnitLevel("player") >= 69 then
-			return (select(2, UnitClass("player")) == "PALADIN" and select(5, GetTalentTabInfo(1)) >= 31)
-     		or (select(2, UnitClass("player")) == "SHAMAN" and select(5, GetTalentTabInfo(3)) >= 31)
-			or (select(2, UnitClass("player")) == "DRUID" and select(5, GetTalentTabInfo(3)) >= 31)
-			or (select(2, UnitClass("player")) == "PRIEST" and select(5, GetTalentTabInfo(3)) < 31)
+			return (class == "PALADIN" and select(5, GetTalentTabInfo(1)) >= 31)
+     		or (class == "SHAMAN" and select(5, GetTalentTabInfo(3)) >= 31)
+			or (class == "DRUID" and select(5, GetTalentTabInfo(3)) >= 31)
+			or (class == "PRIEST" and select(5, GetTalentTabInfo(3)) < 31)
 		else
-			return (select(2, UnitClass("player")) == "PALADIN")
-     		or (select(2, UnitClass("player")) == "SHAMAN")
-			or (select(2, UnitClass("player")) == "DRUID")
-			or (select(2, UnitClass("player")) == "PRIEST")
+			return class == "PALADIN"
+     		or class == "SHAMAN"
+			or class == "DRUID"
+			or class == "PRIEST"
 		end
 	end
 else--It's not cataclysm
 	function bossModPrototype:IsMelee()
 		if UnitLevel("player") >= 62 then
-			return select(2, UnitClass("player")) == "ROGUE"
-			or select(2, UnitClass("player")) == "WARRIOR"
-			or select(2, UnitClass("player")) == "DEATHKNIGHT"
-			or (select(2, UnitClass("player")) == "PALADIN" and select(3, GetTalentTabInfo(1)) < 51)
-     		or (select(2, UnitClass("player")) == "SHAMAN" and select(3, GetTalentTabInfo(2)) >= 51)
-			or (select(2, UnitClass("player")) == "DRUID" and select(3, GetTalentTabInfo(2)) >= 51)
+			return class == "ROGUE"
+			or class == "WARRIOR"
+			or class == "DEATHKNIGHT"
+			or (class == "PALADIN" and select(3, GetTalentTabInfo(1)) < 51)
+     		or (class == "SHAMAN" and select(3, GetTalentTabInfo(2)) >= 51)
+			or (class == "DRUID" and select(3, GetTalentTabInfo(2)) >= 51)
 		else
-			return select(2, UnitClass("player")) == "ROGUE"
-			or select(2, UnitClass("player")) == "WARRIOR"
-			or select(2, UnitClass("player")) == "DEATHKNIGHT"
-			or (select(2, UnitClass("player")) == "PALADIN")
-     		or (select(2, UnitClass("player")) == "SHAMAN")
-			or (select(2, UnitClass("player")) == "DRUID")
+			return class == "ROGUE"
+			or class == "WARRIOR"
+			or class == "DEATHKNIGHT"
+			or class == "PALADIN"
+     		or class == "SHAMAN"
+			or class == "DRUID"
 		end
 	end
 
 	function bossModPrototype:IsRanged()
 		if UnitLevel("player") >= 62 then
-			return select(2, UnitClass("player")) == "MAGE"
-			or select(2, UnitClass("player")) == "HUNTER"
-			or select(2, UnitClass("player")) == "WARLOCK"
-			or select(2, UnitClass("player")) == "PRIEST"
-			or (select(2, UnitClass("player")) == "PALADIN" and select(3, GetTalentTabInfo(1)) >= 51)
-     		or (select(2, UnitClass("player")) == "SHAMAN" and select(3, GetTalentTabInfo(2)) < 51)
-			or (select(2, UnitClass("player")) == "DRUID" and select(3, GetTalentTabInfo(2)) < 51)
+			return class == "MAGE"
+			or class == "HUNTER"
+			or class == "WARLOCK"
+			or class == "PRIEST"
+			or (class == "PALADIN" and select(3, GetTalentTabInfo(1)) >= 51)
+     		or (class == "SHAMAN" and select(3, GetTalentTabInfo(2)) < 51)
+			or (class == "DRUID" and select(3, GetTalentTabInfo(2)) < 51)
 		else
-			return select(2, UnitClass("player")) == "MAGE"
-			or select(2, UnitClass("player")) == "HUNTER"
-			or select(2, UnitClass("player")) == "WARLOCK"
-			or select(2, UnitClass("player")) == "PRIEST"
-			or (select(2, UnitClass("player")) == "PALADIN")
-     		or (select(2, UnitClass("player")) == "SHAMAN")
-			or (select(2, UnitClass("player")) == "DRUID")
+			return class == "MAGE"
+			or class == "HUNTER"
+			or class == "WARLOCK"
+			or class == "PRIEST"
+			or class == "PALADIN"
+     		or class == "SHAMAN"
+			or class == "DRUID"
 		end
 	end
 
 	function bossModPrototype:IsManaUser()--Similar to ranged, but includes all paladins and all shamens and excludes hunters in cata
 		if UnitLevel("player") >= 62 then
-			return select(2, UnitClass("player")) == "MAGE"
-			or select(2, UnitClass("player")) == "HUNTER"
-			or select(2, UnitClass("player")) == "WARLOCK"
-			or select(2, UnitClass("player")) == "PRIEST"
-			or (select(2, UnitClass("player")) == "PALADIN")
-     		or (select(2, UnitClass("player")) == "SHAMAN")
-			or (select(2, UnitClass("player")) == "DRUID" and select(3, GetTalentTabInfo(2)) < 51)
+			return class == "MAGE"
+			or class == "HUNTER"
+			or class == "WARLOCK"
+			or class == "PRIEST"
+			or class == "PALADIN"
+     		or class == "SHAMAN"
+			or (class == "DRUID" and select(3, GetTalentTabInfo(2)) < 51)
 		else
-			return select(2, UnitClass("player")) == "MAGE"
-			or select(2, UnitClass("player")) == "HUNTER"
-			or select(2, UnitClass("player")) == "WARLOCK"
-			or select(2, UnitClass("player")) == "PRIEST"
-			or (select(2, UnitClass("player")) == "PALADIN")
-     		or (select(2, UnitClass("player")) == "SHAMAN")
-			or (select(2, UnitClass("player")) == "DRUID")
+			return class == "MAGE"
+			or class == "HUNTER"
+			or class == "WARLOCK"
+			or class == "PRIEST"
+			or class == "PALADIN"
+     		or class == "SHAMAN"
+			or class == "DRUID"
 		end
 	end
 
@@ -2793,39 +2796,39 @@ else--It's not cataclysm
 
 	function bossModPrototype:IsTank()
 		if UnitLevel("player") >= 62 then
-			return (select(2, UnitClass("player")) == "WARRIOR" and select(3, GetTalentTabInfo(3)) >= 51)
-     		or (select(2, UnitClass("player")) == "DEATHKNIGHT" and IsDeathKnightTank())
-			or (select(2, UnitClass("player")) == "PALADIN" and select(3, GetTalentTabInfo(2)) >= 51)
-			or (select(2, UnitClass("player")) == "DRUID" and select(3, GetTalentTabInfo(2)) >= 51 and IsDruidTank())
+			return (class == "WARRIOR" and select(3, GetTalentTabInfo(3)) >= 51)
+     		or (class == "DEATHKNIGHT" and IsDeathKnightTank())
+			or (class == "PALADIN" and select(3, GetTalentTabInfo(2)) >= 51)
+			or (class == "DRUID" and select(3, GetTalentTabInfo(2)) >= 51 and IsDruidTank())
 		else
-			return (select(2, UnitClass("player")) == "WARRIOR")
-     		or (select(2, UnitClass("player")) == "DEATHKNIGHT")
-			or (select(2, UnitClass("player")) == "PALADIN")
-			or (select(2, UnitClass("player")) == "DRUID")
+			return class == "WARRIOR"
+     		or class == "DEATHKNIGHT"
+			or class == "PALADIN"
+			or class == "DRUID"
 		end
 	end
 
 	function bossModPrototype:IsHealer()
 		if UnitLevel("player") >= 62 then
-			return (select(2, UnitClass("player")) == "PALADIN" and select(3, GetTalentTabInfo(1)) >= 51)
-     		or (select(2, UnitClass("player")) == "SHAMAN" and select(3, GetTalentTabInfo(3)) >= 51)
-			or (select(2, UnitClass("player")) == "DRUID" and select(3, GetTalentTabInfo(3)) >= 51)
-			or (select(2, UnitClass("player")) == "PRIEST" and select(3, GetTalentTabInfo(3)) < 51)
+			return (class == "PALADIN" and select(3, GetTalentTabInfo(1)) >= 51)
+     		or (class == "SHAMAN" and select(3, GetTalentTabInfo(3)) >= 51)
+			or (class == "DRUID" and select(3, GetTalentTabInfo(3)) >= 51)
+			or (class == "PRIEST" and select(3, GetTalentTabInfo(3)) < 51)
 		else
-			return (select(2, UnitClass("player")) == "PALADIN")
-     		or (select(2, UnitClass("player")) == "SHAMAN")
-			or (select(2, UnitClass("player")) == "DRUID")
-			or (select(2, UnitClass("player")) == "PRIEST")
+			return class == "PALADIN"
+     		or class == "SHAMAN"
+			or class == "DRUID"
+			or class == "PRIEST"
 		end
 	end
 end
 --These don't matter since they don't check talents
 function bossModPrototype:IsPhysical()
-	return self:IsMelee() or select(2, UnitClass("player")) == "HUNTER"
+	return self:IsMelee() or class == "HUNTER"
 end
 
 function bossModPrototype:CanRemoveEnrage()
-	return select(2, UnitClass("player")) == "HUNTER" or select(2, UnitClass("player")) == "ROGUE"
+	return class == "HUNTER" or class == "ROGUE"
 end
 -------------------------
 --  Boss Health Frame  --
@@ -3145,8 +3148,8 @@ do
 		return newSpecialWarning(self, "dispel", text, nil, optionDefault, ...)
 	end
 	
-	function bossModPrototype:NewSpecialWarningInterupt(text, optionDefault, ...)
-		return newSpecialWarning(self, "interupt", text, nil, optionDefault, ...)
+	function bossModPrototype:NewSpecialWarningInterrupt(text, optionDefault, ...)
+		return newSpecialWarning(self, "interrupt", text, nil, optionDefault, ...)
 	end
 
 	function bossModPrototype:NewSpecialWarningYou(text, optionDefault, ...)

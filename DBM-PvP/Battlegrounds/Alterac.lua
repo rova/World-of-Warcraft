@@ -8,6 +8,7 @@ Alterac:SetZone(DBM_DISABLE_ZONE_DETECTION)
 
 Alterac:AddBoolOption("AutoTurnIn")
 Alterac:RemoveOption("HealthFrame")
+Alterac:RemoveOption("SpeedKillTimer")
 
 Alterac:RegisterEvents(
 	"ZONE_CHANGED_NEW_AREA", 	-- Required for BG start
@@ -83,7 +84,7 @@ end
 local bgzone = false
 do
 	local function AV_Initialize()
-		if select(2, IsInInstance()) == "pvp" and GetRealZoneText() == L.ZoneName then
+		if select(2, IsInInstance()) == "pvp" and GetCurrentMapAreaID() == 401 then
 			bgzone = true
 			for i=1, GetNumMapLandmarks(), 1 do
 				local name, _, textureIndex = GetMapLandmarkInfo(i)
@@ -182,7 +183,7 @@ do
 		function getQuestName(id)
 			tooltip:ClearLines()
 			tooltip:SetHyperlink("quest:"..id)
-			return getglobal(tooltip:GetName().."Text"):GetText()
+			return _G[tooltip:GetName().."Text"]:GetText()
 		end
 	end
 	
@@ -260,7 +261,7 @@ end
 
 function Alterac:GOSSIP_SHOW()
 	if not bgzone or not self.Options.AutoTurnIn then return end
-	local quest = quests[tonumber((UnitGUID("target") or ""):sub(9, 12), 16) or 0]
+	local quest = quests[tonumber(self:GetCIDFromGUID(UnitGUID("target") or "")) or 0]
 	if quest and type(quest[1]) == "table" then
 		for i, v in ipairs(quest) do
 			if checkItems(v[2], v[3] or 1) then

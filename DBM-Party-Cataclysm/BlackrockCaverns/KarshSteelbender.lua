@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("KarshSteelbender", "DBM-Party-Cataclysm", 1)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 4518 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 4814 $"):sub(12, -3))
 mod:SetCreatureID(39698)
 mod:SetZone()
 
@@ -15,27 +15,28 @@ mod:RegisterEvents(
 local warnObsidianArmor		= mod:NewSpellAnnounce(75842, 2)
 local warnSuperheated		= mod:NewSpellAnnounce(75846, 3)
 
-local timerSuperheated		= mod:NewTimer(10, "TimerSuperheated", 75846)
+local timerSuperheated		= mod:NewTimer(17, "TimerSuperheated", 75846)
 
-local specWarnSuperheated	= mod:NewSpecialWarningStack(75846,nil, 5) -- add mod:IsTank()
+local specWarnSuperheated	= mod:NewSpecialWarningStack(75846, mod:IsTank(), 5)
 
-local lastSuperheated
+local lastSuperheated = 0
 function mod:OnCombatStart(delay)
-	spamSuperheated = 0
+	lastSuperheated = 0
 end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(75842) then
 		warnObsidianArmor:Show()
-	elseif args:IsSpellID(75846, 93567) then--Drycoded heroic spellid
+	elseif args:IsSpellID(75846, 93567) then
+		timerSuperheated:Cancel()--try to fix a problem with multiple timers spawning with diff args.
 		timerSuperheated:Start(10, args.amount or 1)
-		if args.amount and args.amount >= 5 then
-			specWarnSuperheated:Show()
-		end
 		if GetTime() - lastSuperheated > 5 then
 			warnSuperheated:Show()
+			if args.amount and args.amount >= 5 then
+				specWarnSuperheated:Show(args.amount)
+			end
 		end
-		lastSuperheated = GetTime()	-- do this every stack otherwise if you would stack to 5+ you would have 2x warning
+		lastSuperheated = GetTime()
 	end
 end
 

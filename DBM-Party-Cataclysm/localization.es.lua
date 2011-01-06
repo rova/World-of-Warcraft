@@ -10,7 +10,7 @@ local L
 L = DBM:GetModLocalization("Romogg")
 
 L:SetGeneralLocalization({
-	name = "Rom'ogg Bonecrusher"--translate
+	name = "Machacahuesos Rom'ogg"
 })
 
 -------------------------------
@@ -19,7 +19,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("Corla")
 
 L:SetGeneralLocalization({
-	name = "Corla, Herald of Twilight"--translate
+	name = "Corla, Heraldo del Crepúsculo"
 })
 
 L:SetWarningLocalization({
@@ -36,11 +36,11 @@ L:SetOptionLocalization({
 L = DBM:GetModLocalization("KarshSteelbender")
 
 L:SetGeneralLocalization({
-	name = "Karsh Steelbender"--translate
+	name = "Karsh Doblacero"
 })
 
 L:SetTimerLocalization({
-	TimerSuperheated 	= "$spell:75846 (%d)"	-- should work, no need for translation :)
+	TimerSuperheated 	= "Armadura sobrecalentada (%d)"
 })
 
 L:SetOptionLocalization({
@@ -53,7 +53,7 @@ L:SetOptionLocalization({
 L = DBM:GetModLocalization("Beauty")
 
 L:SetGeneralLocalization({
-	name = "Beauty"--translate
+	name = "Bella"
 })
 
 -----------------------------
@@ -77,7 +77,7 @@ L:SetOptionLocalization({
 L = DBM:GetModLocalization("Glubtok")
 
 L:SetGeneralLocalization({
-	name = "Glubtok"--translate
+	name = "Glubtok"
 })
 
 -----------------------
@@ -86,7 +86,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("Helix")
 
 L:SetGeneralLocalization({
-	name = "Helix Gearbreaker"--translate
+	name = "Helix Rompengranajes"
 })
 
 ---------------------
@@ -95,7 +95,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("FoeReaper")
 
 L:SetGeneralLocalization({
-	name = "Foe Reaper 5000"--translate
+	name = "Siegaenemigos 5000"
 })
 
 ----------------------
@@ -104,7 +104,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("Ripsnarl")
 
 L:SetGeneralLocalization({
-	name = "Admiral Ripsnarl"--translate
+	name = "Almirante Rasgagruñido"
 })
 
 ----------------------
@@ -116,6 +116,15 @@ L:SetGeneralLocalization({
 	name = "\"Capitán\" Cocinitas"
 })
 
+----------------------
+-- Vanessa VanCleef --
+----------------------
+L = DBM:GetModLocalization("Vanessa")
+
+L:SetGeneralLocalization({
+	name = "Vanessa VanCleef"
+})
+
 ------------------
 --  Grim Batol  --
 ---------------------
@@ -124,7 +133,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("GeneralUmbriss")
 
 L:SetGeneralLocalization({
-	name = "General Umbriss"--translate
+	name = "General Umbriss"
 })
 
 --------------------------
@@ -133,7 +142,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("ForgemasterThrongus")
 
 L:SetGeneralLocalization({
-	name = "Forgemaster Throngus"--translate
+	name = "Maestro de forja Throngus"
 })
 
 -------------------------
@@ -142,8 +151,13 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("DrahgaShadowburner")
 
 L:SetGeneralLocalization({
-	name = "Drahga Shadowburner"--translate
+	name = "Drahga Quemasombras"
 })
+
+L:SetMiscLocalization{
+	ValionaYell	= "Dragon, you will do as I command! Catch me!",	-- translate -- Yell when Valiona is incoming
+	Valiona		= "Valiona"	-- translate
+}
 
 ------------
 -- Erudax --
@@ -162,7 +176,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("TempleGuardianAnhuur")
 
 L:SetGeneralLocalization({
-	name = "Temple Guardian Anhuur"--translate
+	name = "Guardian del templo Anhuur"
 })
 
 ---------------------
@@ -171,7 +185,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("EarthragerPtah")
 
 L:SetGeneralLocalization({
-	name = "Earthrager Ptah"--translate
+	name = "Terracundo Ptah"
 })
 
 --------------
@@ -180,7 +194,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("Anraphet")
 
 L:SetGeneralLocalization({
-	name = "Anraphet"--translate
+	name = "Anraphet"
 })
 
 ------------
@@ -189,7 +203,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("Isiset")
 
 L:SetGeneralLocalization({
-	name = "Isiset"--translate
+	name = "Isiset"
 })
 
 L:SetWarningLocalization({
@@ -206,7 +220,7 @@ L:SetOptionLocalization({
 L = DBM:GetModLocalization("Ammunae")
 
 L:SetGeneralLocalization({
-	name = "Ammunae"--translate
+	name = "Ammunae"
 })
 
 -------------
@@ -215,7 +229,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("Setesh")
 
 L:SetGeneralLocalization({
-	name = "Setesh"--translate
+	name = "Setesh"
 })
 
 ----------
@@ -235,7 +249,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("GeneralHusam")
 
 L:SetGeneralLocalization({
-	name = "General Husam"--translate
+	name = "General Husam"
 })
 
 ------------------------------------
@@ -253,8 +267,17 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("HighProphetBarim")
 
 L:SetGeneralLocalization({
-	name = "High Prophet Barim"--translate
+	name = "Sumo Profeta Barim"
 })
+
+L:SetOptionLocalization{
+	BossHealthAdds	= "Mostrar barra de vida de los adds"
+}
+
+L:SetMiscLocalization{
+	BlazeHeavens		= "Llamarada de los cielos",
+	HarbringerDarkness	= "Presagista de oscuridad"
+}
 
 --------------
 -- Lockmaw --
@@ -262,7 +285,20 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("Lockmaw")
 
 L:SetGeneralLocalization({
-	name = "Lockmaw"--translate
+	name = "Cierrafauce"
+})
+
+L:SetOptionLocalization{
+	RangeFrame	= "Mostrar distáncia (5 yardas)"
+}
+
+----------
+-- Augh --
+----------
+L = DBM:GetModLocalization("Augh")
+
+L:SetGeneralLocalization({
+	name = "Augh"
 })
 
 -----------------------
@@ -300,8 +336,18 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("Walden")
 
 L:SetGeneralLocalization({
-	name = "Lord Walden"--translate
+	name = "Lord Walden"
 })
+
+L:SetWarningLocalization{
+	specWarnCoagulant	= "Mezcla verde. ¡Muévete!",	-- Green light
+	specWarnRedMix		= "Mezcla roja. ¡No te muevas!"		-- Red light
+}
+
+L:SetOptionLocalization{
+	RedLightGreenLight	= "Mostrar aviso especial para mezclas rojas/verdes"
+}
+
 
 ------------------
 -- Lord Godfrey --
@@ -309,8 +355,16 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("Godfrey")
 
 L:SetGeneralLocalization({
-	name = "Lord Godfrey"--translate
+	name = "Lord Godfrey"
 })
+
+L:SetWarningLocalization{
+	WarnMortalWound	= "%s en >%s< (%d)"
+}
+
+L:SetOptionLocalization{
+	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(93675, GetSpellInfo(93675) or "unknown")
+}
 
 
 ---------------------
@@ -338,7 +392,7 @@ L:SetOptionLocalization({
 })
 
 L:SetGeneralLocalization({
-	name = "Corborus"--translate
+	name = "Corborus"
 })
 
 -----------
@@ -347,7 +401,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("Ozruk")
 
 L:SetGeneralLocalization({
-	name = "Ozruk"--translate
+	name = "Ozruk"
 })
 
 --------------
@@ -356,8 +410,17 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("Slabhide")
 
 L:SetGeneralLocalization({
-	name = "Slabhide"--translate
+	name = "Pielpétrea"
 })
+
+L:SetWarningLocalization({
+	specWarnCrystalStorm		= "Tormenta de Cristales - Protégete"
+})
+
+L:SetOptionLocalization({
+	specWarnCrystalStorm		= "Mostrar aviso especial para $spell:92265"
+})
+
 
 -------------------------
 -- High Priestess Azil --
@@ -376,16 +439,20 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("GrandVizierErtan")
 
 L:SetGeneralLocalization({
-	name = "Grand Vizier Ertan"--translate
+	name = "Gran visir Ertan"
 })
 
 --------------
--- Altarius --
+-- Altairus --
 -------------- 
-L = DBM:GetModLocalization("Altarius")
+L = DBM:GetModLocalization("Altairus")
 
 L:SetGeneralLocalization({
-	name = "Altarius"--translate
+	name = "Altarius"
+})
+
+L:SetOptionLocalization({
+	BreathIcon	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(88308)
 })
 
 -----------
@@ -405,7 +472,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("LadyNazjar")
 
 L:SetGeneralLocalization({
-	name = "Lady Naz'jar"--translate
+	name = "Lady Naz'jar"
 })
 
 -----======-----------
@@ -414,7 +481,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("CommanderUlthok")
 
 L:SetGeneralLocalization({
-	name = "Commander Ulthok"--translate
+	name = "Comandante Ulthok"
 })
 
 -------------------------
@@ -423,7 +490,7 @@ L:SetGeneralLocalization({
 L = DBM:GetModLocalization("ErunakStonespeaker")
 
 L:SetGeneralLocalization({
-	name = "Erunak Stonespeaker"--translate
+	name = "Erunak Hablapiedra"
 })
 
 ------------

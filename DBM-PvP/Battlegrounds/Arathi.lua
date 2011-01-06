@@ -9,12 +9,14 @@ local L			= Arathi:GetLocalizedStrings()
 Arathi:SetZone(DBM_DISABLE_ZONE_DETECTION)
 
 Arathi:RemoveOption("HealthFrame")
+Arathi:RemoveOption("SpeedKillTimer")
 
 Arathi:RegisterEvents(
 	"ZONE_CHANGED_NEW_AREA",
 	"CHAT_MSG_BG_SYSTEM_HORDE",
 	"CHAT_MSG_BG_SYSTEM_ALLIANCE",
 	"CHAT_MSG_BG_SYSTEM_NEUTRAL",
+	"CHAT_MSG_RAID_BOSS_EMOTE",
 	"UPDATE_WORLD_STATES"
 )
 	
@@ -93,7 +95,7 @@ end
 
 do
 	local function AB_Initialize()
-		if select(2, IsInInstance()) == "pvp" and GetRealZoneText() == L.ZoneName then
+		if select(2, IsInInstance()) == "pvp" and GetCurrentMapAreaID() == 461 then
 			bgzone = true
 			update_gametime()
 			for i=1, GetNumMapLandmarks(), 1 do
@@ -197,6 +199,7 @@ do
 
 	Arathi.CHAT_MSG_BG_SYSTEM_ALLIANCE = schedule_check
 	Arathi.CHAT_MSG_BG_SYSTEM_HORDE = schedule_check
+	Arathi.CHAT_MSG_RAID_BOSS_EMOTE = schedule_check
 
 	function Arathi:CHAT_MSG_BG_SYSTEM_NEUTRAL(arg1)
 		if not bgzone then return end

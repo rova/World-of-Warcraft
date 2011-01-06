@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("LadyNazjar", "DBM-Party-Cataclysm", 9)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 4544 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 4828 $"):sub(12, -3))
 mod:SetCreatureID(40586)
 mod:SetZone()
 
@@ -27,7 +27,7 @@ local timerShockBlastCD		= mod:NewCDTimer(13, 76008)
 local timerGeyser		= mod:NewCastTimer(5, 75722)
 local timerFungalSpores		= mod:NewTargetTimer(15, 80564)
 
-local specWarnShockBlast	= mod:NewSpecialWarningInterupt(76008)
+local specWarnShockBlast	= mod:NewSpecialWarningInterrupt(76008)
 
 local preWarnedWaterspout = false
 function mod:OnCombatStart()
@@ -44,7 +44,7 @@ end
 function mod:SPELL_AURA_REMOVED(args)
 	if args:IsSpellID(75690) then
 		timerWaterspout:Cancel()
-		timerShockBlastCD:Start(10)
+		timerShockBlastCD:Start(13)
 	end
 end
 
@@ -58,7 +58,7 @@ function mod:SPELL_CAST_START(args)
 		specWarnShockBlast:Show()
 		if mod:IsDifficulty("heroic5") then
 			timerShockBlast:Start(2)
-			timerShockBlastCD:Start(11)
+			timerShockBlastCD:Start()	-- Seems like the CD on heroic is same as on normal, need confirmation tho
 		else
 			timerShockBlast:Start()
 			timerShockBlastCD:Start()

@@ -353,11 +353,12 @@ local moduleName = "AtlasLootCataclysm"
 		["Normal"] = {
 			{
 				{ 1, 0, "INV_Box_01", "=q6=#j1#", ""};
-				{ 2, 55798, "", "=q3=Deep Delving Gloves", "=ds=#s9#, #a2#", ""};
-				{ 3, 55797, "", "=q3=Hematite Plate Gloves", "=ds=#s9#, #a4#", ""};
-				{ 4, 55799, "", "=q3=Rose Quartz Band", "=ds=#s13#", ""};
-				{ 5, 55800, "", "=q3=Stalagmite Dragon", "=ds=#s16#", ""};
-				{ 6, 55801, "", "=q3=Quicksilver Blade", "=ds=#h1#, #w4#", ""};
+				{ 2, 63043, "", "=q4=Reins of the Vitreous Stone Drake", "=ds=#e27#", "", "1%"};
+				{ 3, 55798, "", "=q3=Deep Delving Gloves", "=ds=#s9#, #a2#", ""};
+				{ 4, 55797, "", "=q3=Hematite Plate Gloves", "=ds=#s9#, #a4#", ""};
+				{ 5, 55799, "", "=q3=Rose Quartz Band", "=ds=#s13#", ""};
+				{ 6, 55800, "", "=q3=Stalagmite Dragon", "=ds=#s16#", ""};
+				{ 7, 55801, "", "=q3=Quicksilver Blade", "=ds=#h1#, #w4#", ""};
 				{ 16, 0, "inv_box_04", "=q6=#j3#", ""};
 				{ 17, 63043, "", "=q4=Reins of the Vitreous Stone Drake", "=ds=#e27#", "", "1%"};
 				{ 18, 56334, "", "=q3=Deep Delving Gloves", "=ds=#s9#, #a2#", ""};
@@ -1203,7 +1204,7 @@ local moduleName = "AtlasLootCataclysm"
 				{ 17, 63455, "", "=q3=Blinders of the Follower", "=ds=#s1#, #a1#" };
 				{ 18, 63454, "", "=q3=Double Dealing Bracers", "=ds=#s8#, #a2#" };
 				{ 19, 63452, "", "=q3=Burden of Lost Humanity", "=ds=#s3#, #a3#" };
-				{ 20, 63450, "", "=q3=Phantom Armor", "=ds=#s5#, #a3#" };
+				{ 20, 63450, "", "=q3=Phantom Armor", "=ds=#s5#, #a4#" };
 				{ 21, 63453, "", "=q3=Iron Will Girdle", "=ds=#s10#, #a4#" };
 			};
 		};
@@ -1511,19 +1512,20 @@ local moduleName = "AtlasLootCataclysm"
 		};
 	};
 
-	AtlasLoot_Data["BDOmnitron"] = {
+	AtlasLoot_Data["BDOmnotron"] = {
 		["Normal"] = {
 			{
 				{ 1, 59219, "", "=q4=Power Generator Hood", "=ds=#s1#, #a1#", ""};
 				{ 2, 59217, "", "=q4=X-Tron Duct Tape", "=ds=#s10#, #a1#", ""};
 				{ 3, 59218, "", "=q4=Passive Resistor Spaulders", "=ds=#s3#, #a2#", ""};
 				{ 4, 59120, "", "=q4=Poison Protocol Pauldrons", "=ds=#s3#, #a2#", ""};
-				{ 5, 59119, "", "=q4=Voltage Source Chestguard", "=ds=#s5#, #a3#", ""};
-				{ 6, 59118, "", "=q4=Electron Inductor Coils", "=ds=#s8#, #a4#", ""};
-				{ 7, 59117, "", "=q4=Jumbotron Power Belt", "=ds=#s10#, #a4#", ""};
-				{ 8, 59216, "", "=q4=Life Force Chargers", "=ds=#s12#, #a4#", ""};
-				{ 10, 59220, "", "=q4=Security Measure Alpha", "=ds=#s13#", ""};
-				{ 11, 59121, "", "=q4=Lightning Conductor Band", "=ds=#s13#", ""};
+				{ 5, 63540, "", "=q4=Circuit Design Breastplate", "=ds=#s5#, #a3#", ""};
+				{ 6, 59119, "", "=q4=Voltage Source Chestguard", "=ds=#s5#, #a3#", ""};
+				{ 7, 59118, "", "=q4=Electron Inductor Coils", "=ds=#s8#, #a4#", ""};
+				{ 8, 59117, "", "=q4=Jumbotron Power Belt", "=ds=#s10#, #a4#", ""};
+				{ 9, 59216, "", "=q4=Life Force Chargers", "=ds=#s12#, #a4#", ""};
+				{ 11, 59220, "", "=q4=Security Measure Alpha", "=ds=#s13#", ""};
+				{ 12, 59121, "", "=q4=Lightning Conductor Band", "=ds=#s13#", ""};
 				{ 16, 59122, "", "=q4=Organic Lifeform Inverter", "=ds=#h1#, #w4#", ""};
 			};
 		};
@@ -1533,17 +1535,18 @@ local moduleName = "AtlasLootCataclysm"
 				{ 2, 65079, "", "=q4=X-Tron Duct Tape", "=ds=#s10#, #a1#", ""};
 				{ 3, 65078, "", "=q4=Passive Resistor Spaulders", "=ds=#s3#, #a2#", ""};
 				{ 4, 65083, "", "=q4=Poison Protocol Pauldrons", "=ds=#s3#, #a2#", ""};
-				{ 5, 65084, "", "=q4=Voltage Source Chestguard", "=ds=#s5#, #a3#", ""};
-				{ 6, 65085, "", "=q4=Electron Inductor Coils", "=ds=#s8#, #a4#", ""};
-				{ 7, 65086, "", "=q4=Jumbotron Power Belt", "=ds=#s10#, #a4#", ""};
-				{ 8, 65080, "", "=q4=Life Force Chargers", "=ds=#s12#, #a4#", ""};
-				{ 10, 65076, "", "=q4=Security Measure Alpha", "=ds=#s13#", ""};
-				{ 11, 65082, "", "=q4=Lightning Conductor Band", "=ds=#s13#", ""};
+				{ 5, 65004, "", "=q4=Circuit Design Breastplate", "=ds=#s5#, #a3#", ""};
+				{ 6, 65084, "", "=q4=Voltage Source Chestguard", "=ds=#s5#, #a3#", ""};
+				{ 7, 65085, "", "=q4=Electron Inductor Coils", "=ds=#s8#, #a4#", ""};
+				{ 8, 65086, "", "=q4=Jumbotron Power Belt", "=ds=#s10#, #a4#", ""};
+				{ 9, 65080, "", "=q4=Life Force Chargers", "=ds=#s12#, #a4#", ""};
+				{ 11, 65076, "", "=q4=Security Measure Alpha", "=ds=#s13#", ""};
+				{ 12, 65082, "", "=q4=Lightning Conductor Band", "=ds=#s13#", ""};
 				{ 16, 65081, "", "=q4=Organic Lifeform Inverter", "=ds=#h1#, #w4#", ""};
 			};
 		};
 		info = {
-			name = BabbleBoss["Omnitron Defense System"],
+			name = BabbleBoss["Omnotron Defense System"],
 			module = moduleName, instance = "BlackwingDescent",
 		};
 	};
@@ -1827,6 +1830,7 @@ local moduleName = "AtlasLootCataclysm"
 				{ 7, 65385, "", "=q4=Tempest Keeper Leggings", "=ds=#s11#, #a4#", ""};
 				{ 8, 65380, "", "=q4=Thunder Wall Greaves", "=ds=#s11#, #a4#", ""};
 				{ 10, 65382, "", "=q4=Cloudburst Ring", "=ds=#s13#", ""};
+				{ 11, 63041, "", "=q4=Reins of the Drake of the South Wind", "=ds=#e27#", ""};
 				{ 16, 66998, "", "=q4=Essence of the Forlorn", "=ds=#e15#, #m37#"};
 			};
 		};
@@ -1983,8 +1987,7 @@ local moduleName = "AtlasLootCataclysm"
 				{ 19, 62448, "", "=q4=Sun King's Girdle", "=ds=#s10#, #a4#", ""};
 				{ 20, 62447, "", "=q4=Gift of Nadun", "=ds=#s2#", ""};
 				{ 21, 63044, "", "=q4=Reins of the Brown Riding Camel", "=ds=#e26#", ""};
-				{ 22, 63046, "", "=q4=Reins of the Grey Riding Camel", "=ds=#e26#", ""};
-				{ 23, 63045, "", "=q4=Reins of the Tan Riding Camel", "=ds=#e26#", ""};
+				{ 22, 63045, "", "=q4=Reins of the Tan Riding Camel", "=ds=#e26#", ""};
 			};
 		};
 		info = {
@@ -3627,27 +3630,28 @@ local moduleName = "AtlasLootCataclysm"
 			{
 				{ 1, 0, "INV_Box_01", "=q6=#z17#", ""};
 				{ 2, 8494, "", "=q4=Parrot Cage (Hyacinth Macaw)", "=ds="..BabbleZone["Stranglethorn Vale"]};
-				{ 3, 43698, "", "=q3=Giant Sewer Rat", "#ACHIEVEMENTID:1958#, =q1="..BabbleZone["Dalaran"]};
-				{ 4, 34535, "", "=q1=Azure Whelpling", "=ds="..BabbleZone["Winterspring"]};
-				{ 5, 29960, "", "=q1=Captured Firefly", "=ds="..BabbleZone["Zangarmarsh"]};
-				{ 6, 8491, "", "=q1=Cat Carrier (Black Tabby)", "=ds="..BabbleZone["Silverpine Forest"]};
-				{ 7, 10822, "", "=q1=Dark Whelpling", "=ds="..BabbleZone["Wetlands"].." / "..BabbleZone["Badlands"].." / "..BabbleZone["Burning Steppes"]};
-				{ 8, 48112, "", "=q1=Darting Hatchling", "=ds="..BabbleZone["Dustwallow Marsh"]};
-				{ 9, 20769, "", "=q1=Disgusting Oozeling", "=ds=#e13#"};
-				{ 10, 48116, "", "=q1=Gundrak Hatchling", "=ds="..BabbleZone["Gundrak"]};
-				{ 11, 48118, "", "=q1=Leaping Hatchling", "=ds="..BabbleZone["The Barrens"]};
-				{ 12, 27445, "", "=q1=Magical Crawdad Box", "=ds="..BabbleZone["Terokkar Forest"]};
-				{ 13, 66076, "", "=q1=Mr. Grubbs", "=q2="..AL["Hidden Stash"]..", =q1="..BabbleZone["Eastern Plaguelands"]};
-				{ 14, 48122, "", "=q1=Ravasaur Hatchling", "=ds="..BabbleZone["Un'Goro Crater"]};
-				{ 15, 48124, "", "=q1=Razormaw Hatchling", "=ds="..BabbleZone["Wetlands"]};
-				{ 16, 8499, "", "=q1=Tiny Crimson Whelpling", "=ds="..BabbleZone["Wetlands"]};
-				{ 17, 8498, "", "=q1=Tiny Emerald Whelpling", "=ds="..BabbleZone["Swamp of Sorrows"]};
-				{ 18, 64494, "", "=q1=Tiny Shale Spider", "=q2="..AL["Jadefang"]..", =q1="..BabbleZone["Deepholm"]};	
-				{ 20, 0, "INV_Box_01", "=q6="..AL["Dungeon/Raid"], ""};
-				{ 21, 33993, "", "=q3=Mojo", "=q1="..BabbleZone["Zul'Aman"]};
-				{ 22, 35504, "", "=q3=Phoenix Hatchling", "=q2="..BabbleBoss["Kael'thas Sunstrider"]..", =q1="..BabbleZone["Magisters' Terrace"]};
-				{ 23, 48114, "", "=q1=Deviate Hatchling", "=q2="..AL["Deviate Ravager/Deviate Guardian"]..", =q1="..BabbleZone["Wailing Caverns"]};
-				{ 24, 48126, "", "=q1=Razzashi Hatchling", "=q2="..AL["Razzashi Raptor"]..", =q1="..BabbleZone["Zul'Gurub"]}; --need to find out new drop location
+				{ 3, 64403, "", "=q3=Fox Kit", "=ds="..BabbleZone["Tol Barad Peninsula"]};
+				{ 4, 43698, "", "=q3=Giant Sewer Rat", "#ACHIEVEMENTID:1958#, =q1="..BabbleZone["Dalaran"]};
+				{ 5, 34535, "", "=q1=Azure Whelpling", "=ds="..BabbleZone["Winterspring"]};
+				{ 6, 29960, "", "=q1=Captured Firefly", "=ds="..BabbleZone["Zangarmarsh"]};
+				{ 7, 8491, "", "=q1=Cat Carrier (Black Tabby)", "=ds="..BabbleZone["Silverpine Forest"]};
+				{ 8, 10822, "", "=q1=Dark Whelpling", "=ds="..BabbleZone["Wetlands"].." / "..BabbleZone["Badlands"].." / "..BabbleZone["Burning Steppes"]};
+				{ 9, 48112, "", "=q1=Darting Hatchling", "=ds="..BabbleZone["Dustwallow Marsh"]};
+				{ 10, 20769, "", "=q1=Disgusting Oozeling", "=ds=#e13#"};
+				{ 11, 48116, "", "=q1=Gundrak Hatchling", "=ds="..BabbleZone["Zul'Drak"]};
+				{ 12, 48118, "", "=q1=Leaping Hatchling", "=ds="..BabbleZone["Northern Barrens"]};
+				{ 13, 27445, "", "=q1=Magical Crawdad Box", "=ds="..BabbleZone["Terokkar Forest"]};
+				{ 14, 66076, "", "=q1=Mr. Grubbs", "=q2="..AL["Hidden Stash"]..", =q1="..BabbleZone["Eastern Plaguelands"]};
+				{ 15, 48122, "", "=q1=Ravasaur Hatchling", "=ds="..BabbleZone["Un'Goro Crater"]};
+				{ 16, 48124, "", "=q1=Razormaw Hatchling", "=ds="..BabbleZone["Wetlands"]};
+				{ 17, 48126, "", "=q1=Razzashi Hatchling", "=ds="..BabbleZone["Northern Stranglethorn"].." / "..BabbleZone["The Cape of Stranglethorn"]};
+				{ 18, 8499, "", "=q1=Tiny Crimson Whelpling", "=ds="..BabbleZone["Wetlands"]};
+				{ 19, 8498, "", "=q1=Tiny Emerald Whelpling", "=ds="..BabbleZone["Feralas"]};
+				{ 20, 64494, "", "=q1=Tiny Shale Spider", "=q2="..AL["Jadefang"]..", =q1="..BabbleZone["Deepholm"]};	
+				{ 22, 0, "INV_Box_01", "=q6="..AL["Dungeon/Raid"], ""};
+				{ 23, 33993, "", "=q3=Mojo", "=q1="..BabbleZone["Zul'Aman"]};
+				{ 24, 35504, "", "=q3=Phoenix Hatchling", "=q2="..BabbleBoss["Kael'thas Sunstrider"]..", =q1="..BabbleZone["Magisters' Terrace"]};
+				{ 25, 48114, "", "=q1=Deviate Hatchling", "=q2="..AL["Deviate Ravager/Deviate Guardian"]..", =q1="..BabbleZone["Wailing Caverns"]};
 			};
 		};
 		info = {
@@ -3793,7 +3797,7 @@ local moduleName = "AtlasLootCataclysm"
 				{ 6, 67282, "", "=q3=Elementium Geode", "=q2=#p23#"};
 				{ 7, 67274, "", "=q3=Enchanted Lantern", "=q2=#p4#"};
 				{ 8, 60955, "", "=q3=Fossilized Hatchling", "=q2=#p25#"};
-				{ 9, 64403, "", "=q3=Fox Kit", "=ds=#e13#"}; -- havent added to any table yet / unkown drop location
+				{ 9, 64403, "", "=q3=Fox Kit", "=ds="..BabbleZone["Tol Barad Peninsula"]};
 				{
 					{ 10, 65364, "", "=q3=Guild Herald", "#ACHIEVEMENTID:5201#, =ec1="..BabbleFaction["Horde"]};
 					{ 10, 65363, "", "=q3=Guild Herald", "#ACHIEVEMENTID:5201#, =ec1="..BabbleFaction["Alliance"]};
@@ -4034,8 +4038,7 @@ local moduleName = "AtlasLootCataclysm"
 			{
 				{ 1, 0, "INV_Box_01", "=q6="..BabbleFaction["Ramkahen"].." #j30#", "=q1="..BabbleZone["Uldum"]};
 				{ 2, 63044, "", "=q4=Reins of the Brown Riding Camel", "=ds=#e26#", ""};
-				{ 3, 63046, "", "=q4=Reins of the Grey Riding Camel", "=ds=#e26#", ""};
-				{ 4, 63045, "", "=q4=Reins of the Tan Riding Camel", "=ds=#e26#", ""};
+				{ 3, 63045, "", "=q4=Reins of the Tan Riding Camel", "=ds=#e26#", ""};
 			};
 		};
 		info = {
@@ -4094,21 +4097,23 @@ local moduleName = "AtlasLootCataclysm"
 				{ 11, 44151, "", "=q4=Reins of the Blue Proto-Drake", "=q2="..BabbleBoss["Skadi the Ruthless"]..", =q1="..AL["Heroic"].." "..BabbleZone["Utgarde Pinnacle"], ""};
 				{ 12, 43951, "", "=q4=Reins of the Bronze Drake", "#ACHIEVEMENTID:1817#, =q1="..BabbleZone["The Culling of Stratholme"], ""};
 				{ 13, 63040, "", "=q4=Reins of the Drake of the North Wind", "=q2="..BabbleBoss["Altarius"]..", =q1="..BabbleZone["The Vortex Pinnacle"]};
+				{ 14, 63041, "", "=q4=Reins of the Drake of the South Wind", "=q2="..BabbleBoss["Al'Akir"]..", =q1="..BabbleZone["Throne of the Four Winds"]};
 				{
-					{ 14, 44083, "", "=q4=Reins of the Grand Black War Mammoth", "=q2="..BabbleZone["Vault of Archavon"]..", =ec1="..BabbleFaction["Horde"], "", ""};
-					{ 14, 43959, "", "=q4=Reins of the Grand Black War Mammoth", "=q2="..BabbleZone["Vault of Archavon"]..", =ec1="..BabbleFaction["Alliance"], "", ""};
+					{ 15, 44083, "", "=q4=Reins of the Grand Black War Mammoth", "=q2="..BabbleZone["Vault of Archavon"]..", =ec1="..BabbleFaction["Horde"], "", ""};
+					{ 15, 43959, "", "=q4=Reins of the Grand Black War Mammoth", "=q2="..BabbleZone["Vault of Archavon"]..", =ec1="..BabbleFaction["Alliance"], "", ""};
 				};
-				{ 15, 32768, "", "=q4=Reins of the Raven Lord", "#ACHIEVEMENTID:883#"};
-				{ 16, 63043, "", "=q4=Reins of the Vitreous Stone Drake", "=q2="..BabbleBoss["Slabhide"]..", =q1="..BabbleZone["The Stonecore"]};
-				{ 17, 35513, "", "=q4=Swift White Hawkstrider", "#ACHIEVEMENTID:884#"};
-				{ 18, 21218, "", "=q3=Blue Qiraji Resonating Crystal", "=q2="..AL["Trash Mobs"]..", =q1="..BabbleZone["Temple of Ahn'Qiraj"], "", "10.91%"};
-				{ 19, 21323, "", "=q3=Green Qiraji Resonating Crystal", "=q2="..AL["Trash Mobs"]..", =q1="..BabbleZone["Temple of Ahn'Qiraj"], "", "11.77%"};
-				{ 20, 21321, "", "=q3=Red Qiraji Resonating Crystal", "=q2="..AL["Trash Mobs"]..", =q1="..BabbleZone["Temple of Ahn'Qiraj"], "", "1.32%"};
-				{ 21, 21324, "", "=q3=Yellow Qiraji Resonating Crystal", "=q2="..AL["Trash Mobs"]..", =q1="..BabbleZone["Temple of Ahn'Qiraj"], "", "12.64%"};
-				{ 23, 0, "INV_Box_01", "=q6="..AL["Rare Mounts"], ""};
-				{ 24, 63042, "", "=q4=Reins of the Phosphorescent Stone Drake", "=q2="..AL["Aeonaxx"]..", =q1="..BabbleZone["Deepholm"]};
-				{ 25, 44168, "", "=q4=Reins of the Time-Lost Proto-Drake", "=q2="..AL["Time-Lost Proto Drake"]..", =q1="..BabbleZone["The Storm Peaks"]};
-				{ 26, 46109, "", "=q3=Sea Turtle", "#ACHIEVEMENTID:3218#", ""};
+				{ 16, 32768, "", "=q4=Reins of the Raven Lord", "#ACHIEVEMENTID:883#"};
+				{ 17, 63043, "", "=q4=Reins of the Vitreous Stone Drake", "=q2="..BabbleBoss["Slabhide"]..", =q1="..BabbleZone["The Stonecore"]};
+				{ 18, 35513, "", "=q4=Swift White Hawkstrider", "#ACHIEVEMENTID:884#"};
+				{ 19, 21218, "", "=q3=Blue Qiraji Resonating Crystal", "=q2="..AL["Trash Mobs"]..", =q1="..BabbleZone["Temple of Ahn'Qiraj"], "", "10.91%"};
+				{ 20, 21323, "", "=q3=Green Qiraji Resonating Crystal", "=q2="..AL["Trash Mobs"]..", =q1="..BabbleZone["Temple of Ahn'Qiraj"], "", "11.77%"};
+				{ 21, 21321, "", "=q3=Red Qiraji Resonating Crystal", "=q2="..AL["Trash Mobs"]..", =q1="..BabbleZone["Temple of Ahn'Qiraj"], "", "1.32%"};
+				{ 22, 21324, "", "=q3=Yellow Qiraji Resonating Crystal", "=q2="..AL["Trash Mobs"]..", =q1="..BabbleZone["Temple of Ahn'Qiraj"], "", "12.64%"};
+				{ 24, 0, "INV_Box_01", "=q6="..AL["Rare Mounts"], ""};
+				{ 25, 63046, "", "=q4=Reins of the Grey Riding Camel", "=q2="..AL["Dormus the Camel-Hoarder"], ""};
+				{ 26, 63042, "", "=q4=Reins of the Phosphorescent Stone Drake", "=q2="..AL["Aeonaxx"]..", =q1="..BabbleZone["Deepholm"]};
+				{ 27, 44168, "", "=q4=Reins of the Time-Lost Proto-Drake", "=q2="..AL["Time-Lost Proto Drake"]..", =q1="..BabbleZone["The Storm Peaks"]};
+				{ 28, 46109, "", "=q3=Sea Turtle", "#ACHIEVEMENTID:3218#", ""};
 			};
 		};
 		info = {
@@ -4249,7 +4254,7 @@ local moduleName = "AtlasLootCataclysm"
 			{
 				{ 1, 62298, "", "=q4=Reins of the Golden King", "#ACHIEVEMENTID:4912#, =ec1="..BabbleFaction["Alliance"]};
 				{ 2, 67107, "", "=q4=Reins of the Kor'kron Annihilator", "#ACHIEVEMENTID:5492#, =ec1="..BabbleFaction["Horde"]};
-				{ 3, 64883, "", "=q4=Scepter of Az'Aqir", "=ds=#e26# =q2=#p25#"};
+				{ 3, 64883, "", "=q4=Scepter of Azj'Aqir", "=ds=#e26# =q2=#p25#"};
 				{ 4, 60954, "", "=q4=Fossilized Raptor", "=ds=#e26# =q2=#p25#"};
 				{ 5, 62462, "", "=q4=Goblin Turbo-Trike Key", "=ds=#e26#"};
 				{ 6, 64998, "", "=q4=Reins of the Spectral Steed", "=ds=#e12#"};
@@ -4260,10 +4265,10 @@ local moduleName = "AtlasLootCataclysm"
 				{ 11, 63125, "", "=q4=Reins of the Dark Phoenix", "#ACHIEVEMENTID:4988#"};
 				{ 12, 62901, "", "=q4=Reins of the Drake of the East Wind", "#ACHIEVEMENTID:4853#"};
 				{ 13, 63040, "", "=q4=Reins of the Drake of the North Wind", "=q2="..BabbleBoss["Altarius"]..", =q1="..BabbleZone["The Vortex Pinnacle"]};
-				{ 14, 63041, "", "=q4=Reins of the Drake of the South Wind", "=ds=#e27#"};--not known where from
+				{ 14, 63041, "", "=q4=Reins of the Drake of the South Wind", "=q2="..BabbleBoss["Al'Akir"]..", =q1="..BabbleZone["Throne of the Four Winds"]};
 				{ 15, 63039, "", "=q4=Reins of the Drake of the West Wind", "=ds=#e27#"};
 				{ 16, 65356, "", "=q4=Reins of the Drake of the West Wind", "=ds=#e27#"};
-				{ 17, 63042, "", "=q4=Reins of the Phosphorescent Stone Drake", "=q2="..AL["Aeonaxx"]..",=q1="..BabbleZone["Deepholm"]};
+				{ 17, 63042, "", "=q4=Reins of the Phosphorescent Stone Drake", "=q2="..AL["Aeonaxx"]..", =q1="..BabbleZone["Deepholm"]};
 				{ 18, 63043, "", "=q4=Reins of the Vitreous Stone Drake", "=q2="..BabbleBoss["Slabhide"]..", =q1="..BabbleZone["The Stonecore"]};
 				{ 19, 62900, "", "=q4=Reins of the Volcanic Stone Drake", "#ACHIEVEMENTID:4845#"};
 				{ 20, 65891, "", "=q4=Vial of the Sands", "=ds=#e27# =q2=#p1#"};

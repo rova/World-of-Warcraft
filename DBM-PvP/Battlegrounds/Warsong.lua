@@ -8,7 +8,7 @@ local Warsong	= DBM:NewMod("WarsongGulch", "DBM-PvP", 2)
 local L			= Warsong:GetLocalizedStrings()
 
 Warsong:RemoveOption("HealthFrame")
-
+Warsong:RemoveOption("SpeedKillTimer")
 Warsong:SetZone(DBM_DISABLE_ZONE_DETECTION)
 
 local bgzone = false
@@ -39,7 +39,7 @@ Warsong:AddBoolOption("ShowFlagCarrierErrorNote", false)
 
 do
 	local function WSG_Initialize()
-		if select(2, IsInInstance()) == "pvp" and GetRealZoneText() == L.ZoneName then
+		if select(2, IsInInstance()) == "pvp" and GetCurrentMapAreaID() == 443 then
 			bgzone = true
 			if Warsong.Options.ShowFlagCarrier then
 				Warsong:ShowFlagCarrier()
@@ -143,20 +143,20 @@ do
 	function Warsong:ColorFlagCarrier(carrier)
 		local found = false
 		for i = 1, GetNumBattlefieldScores() do
-			local name, _, _, _, _, faction, _, _, _, class = GetBattlefieldScore(i)
-	 		if (name and class and RAID_CLASS_COLORS[class]) then
+			local name, _, _, _, _, faction, _, _, classToken = GetBattlefieldScore(i)
+	 		if (name and class and RAID_CLASS_COLORS[classToken]) then
 				if string.match( name, "-" )  then
 					name = string.match(name, "([^%-]+)%-.+")
 				end
 				if name == carrier then
 					if faction == 0 then
-						self.FlagCarrierFrame2Text:SetTextColor(RAID_CLASS_COLORS[class].r, 
-											RAID_CLASS_COLORS[class].g, 
-											RAID_CLASS_COLORS[class].b)
+						self.FlagCarrierFrame2Text:SetTextColor(RAID_CLASS_COLORS[classToken].r, 
+											RAID_CLASS_COLORS[classToken].g, 
+											RAID_CLASS_COLORS[classToken].b)
 					elseif faction == 1 then
-						self.FlagCarrierFrame1Text:SetTextColor(RAID_CLASS_COLORS[class].r, 
-											RAID_CLASS_COLORS[class].g, 
-											RAID_CLASS_COLORS[class].b)
+						self.FlagCarrierFrame1Text:SetTextColor(RAID_CLASS_COLORS[classToken].r, 
+											RAID_CLASS_COLORS[classToken].g, 
+											RAID_CLASS_COLORS[classToken].b)
 					end
 					found = true
 				end
@@ -186,20 +186,20 @@ do
 	local function updateflagcarrier(self, event, arg1)
 		if not self.Options.ShowFlagCarrier then return end
 		if self.FlagCarrierFrame1 and self.FlagCarrierFrame2 then
-			if string.match(arg1, L.ExprFlagPickUp) then
-				local sArg1, sArg2 =  string.match(arg1, L.ExprFlagPickUp)
+			if string.match(arg1, L.ExprFlagPickUp) or (GetLocale() ~= "ruRU" and string.match(arg1, L.ExprFlagPickUp2)) then
+				local sArg1, sArg2
 				local mSide, mNick
-				if( GetLocale() == "deDE") then
+				if ( GetLocale() == "ruRU" and string.match(arg1, L.ExprFlagPickUp2) ) then
+					sArg2, sArg1 =  string.match(arg1, L.ExprFlagPickUp2)
+				else
+					sArg1, sArg2 =  string.match(arg1, L.ExprFlagPickUp)
+				end
+				if( GetLocale() == "deDE" or GetLocale() == "koKR") then
 					mSide = sArg2
 					mNick = sArg1
 				else
 					mSide = sArg1
 					mNick = sArg2
-				end
-			
-				if( GetLocale() == "koKR") then
-					mSide = sArg2
-					mNick = sArg1
 				end
 				
 				if mSide == L.Alliance then

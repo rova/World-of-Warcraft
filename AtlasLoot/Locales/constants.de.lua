@@ -1,4 +1,4 @@
-﻿-- $Id: constants.de.lua 3112 2010-12-05 11:54:58Z dynaletik $
+﻿-- $Id: constants.de.lua 3148 2010-12-20 19:01:48Z dynaletik $
 --[[
 constants.de.lua
 This file defines an AceLocale table for all the various text strings needed
@@ -399,6 +399,9 @@ if AL then
 	AL["Transmutes"] = "Transmutieren";
 	AL["Flasks"] = "Fläschchen";
 
+	-- Blacksmithing
+	AL["Cataclysm Vendor Sold Plans"] = "Cataclysm - Vom Händler verkaufte Pläne";
+
 	-- Enchanting
 	AL["Enchant Boots"] = "Stiefel verzaubern";
 	AL["Enchant Bracer"] = "Armschienen verzaubern";
@@ -409,6 +412,7 @@ if AL then
 	AL["Enchant Shield"] = "Schild verzaubern";
 	AL["Enchant 2H Weapon"] = "2H Waffe verzaubern";
 	AL["Enchant Weapon"] = "Waffe verzaubern";
+	AL["Cataclysm Vendor Sold Formulas"] = "Cataclysm - Vom Händler verkaufte Formeln";
 
 	-- Inscription
 	AL["Major Glyph"] = "Erhebliche Glyphe";
@@ -880,9 +884,6 @@ if AL then
 	-- AL["Herod/Mograine"] = true;
 	AL["Scarlet Protector/Guardsman"] = "Scharlachroter Beschützer/Gardist";
 	AL["Shadowforge Flame Keeper"] = "Flammenbewahrer der Schattenschmiede";
-	AL["Shadow of Doom"] = "Schatten der Verdammnis";
-	AL["Bone Witch"] = "Knochenhexe";
-	AL["Lumbering Horror"] = "Schwerfälliger Horror";
 	AL["Avatar of the Martyred"] = "Avatar des Gemarterten";
 	AL["Nexus Stalker"] = "Nexuswandler";
 	AL["Auchenai Monk"] = "Mönch der Auchenai";
@@ -942,12 +943,6 @@ if AL then
 	AL["Gorgolon the All-seeing"] = "Gorgolon der Allessehende";
 	-- AL["Matron Li-sahar"] = true;
 	AL["Solus the Eternal"] = "Solus der Ewige";
-	-- AL["Balzaphon"] = true;
-	AL["Lord Blackwood"] = "Fürst Schwarzstahl";
-	-- AL["Revanchion"] = true;
-	AL["Scorn"] = "Der Verächter";
-	AL["Sever"] = "Häcksler";
-	-- AL["Lady Falther'ess"] = true;
 	AL["Smokywood Pastures Vendor"] = "Kokelwälder Händler";
 	-- AL["Shartuul"] = true;
 	AL["Darkscreecher Akkarai"] = "Dunkelkreischer Akkarai";
@@ -994,6 +989,8 @@ if AL then
 	AL["Jadefang"] = "Jadezahn";
 	-- AL["Aeonaxx"] = true;
 	AL["Prince Sarsarun"] = "Prinz Sarsarun";
+	AL["Highlord Kruul"] = "Hochlord Kruul";
+	AL["Dormus the Camel-Hoarder"] = "Dormus der Kameltreiber"; 
 
 	-- Zones
 	AL["World Drop"] = "Weltdrops";

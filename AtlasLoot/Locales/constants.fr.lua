@@ -1,4 +1,4 @@
-﻿-- $Id: constants.fr.lua 3102 2010-12-03 02:12:20Z arith $
+﻿-- $Id: constants.fr.lua 3151 2010-12-21 13:43:26Z trasher $
 --[[
 constants.fr.lua --- Traduction frFR par Trasher. Merci à KKram pour les premières traductions & Pettigrow pour ses quelques traductions.
 This file defines an AceLocale table for all the various text strings needed
@@ -399,6 +399,9 @@ if AL then
 	AL["Transmutes"] = "Transmutations";
 	AL["Flasks"] = "Flacons";
 
+	-- Blacksmithing
+	--AL["Cataclysm Vendor Sold Plans"] = true; --  traduire
+
 	-- Enchanting
 	AL["Enchant Boots"] = "Enchantement Bottes";
 	AL["Enchant Bracer"] = "Enchantement Bracelets";
@@ -409,6 +412,7 @@ if AL then
 	AL["Enchant Shield"] = "Enchantement Bouclier";
 	AL["Enchant 2H Weapon"] = "Enchantement Arme à deux mains";
 	AL["Enchant Weapon"] = "Enchantement Arme";
+	--AL["Cataclysm Vendor Sold Formulas"] = true; -- à traduire
 
 	-- Inscription
 	AL["Major Glyph"] = "Glyphe majeur";
@@ -536,7 +540,7 @@ if AL then
 	AL["Random"] = "Aléatoire";
 	AL["Brew of the Month Club"] = "Le club de la Bière du mois";
 
-	-- Cooking descriptions
+	-- Cooking descriptions -- à traduire
 	--AL["Buff"] = true;
 	--AL["Agility"] = true;
 	--AL["Intellect"] = true;
@@ -598,21 +602,25 @@ if AL then
 	AL["Trial of the Crusader Patterns/Plans"] = "Patrons / Plans de L'épreuve du croisé";
 	--AL["BRD Blacksmithing Plans"] = true; -- à traduire
 
+	-- General titles
+	AL["Achievement"] = "Haut fait";
+	AL["Promotional & Card Game"] = "Promotionnel & Jeu de cartes";
+
 	-- Companions
-	--AL["Achievement"] = true;
-	--AL["Achievement & Faction Reward Companions"] = true;
-	--AL["Card Game Companions"] = true;
-	--AL["Companion Accessories"] = true;
-	--AL["Companion Store"] = true;
-	--AL["Crafted Companions"] = true;
-	--AL["Dungeon/Raid"] = true;
+	AL["Achievement & Faction Reward Companions"] = "Haut fait & mascottes de récompenses de factions";
+	AL["Achievement & Faction Reward"] = "Haut fait & récompense de faction";
+	AL["Card Game Companions"] = "Mascottes des jeux de cartes";
+	AL["Companion Accessories"] = "Accessoires pour mascottes";
+	AL["Companion Store"] = "Mascottes de la boutique Blizzard";
+	AL["Crafted Companions"] = "Mascottes de l'artisanat";
+	AL["Dungeon/Raid"] = "Donjon / Raid";
 	--AL["Faction"] = true;
-	--AL["Merchant Sold Companions"] = true;
-	--AL["Pets"] = true;
-	--AL["Promotional Companions"] = true;
-	--AL["Quest Reward Companions"] = true;
-	--AL["Rare Companions"] = true;
-	--AL["Unobtainable Companions"] = true;
+	AL["Merchant Sold Companions"] = "Mascottes des marchands";
+	AL["Pets"] = "Animaux de compagnie";
+	AL["Promotional Companions"] = "Mascottes promotionnelles";
+	AL["Quest Reward Companions"] = "Mascottes des récompenses de quêtes";
+	AL["Rare Companions"] = "Mascottes rares";
+	AL["Unobtainable Companions"] = "Mascottes impossible à obtenir";
 
 	-- Mounts
 	AL["Alliance Flying Mounts"] = "Montures volantes de l'Alliance";
@@ -729,7 +737,7 @@ if AL then
 	--AL["Worldbreaker"] = true;
 
 	-- Battleground Brackets
-	--AL["Old PvP Rewards"] = true;
+	AL["Old PvP Rewards"] = "Anciennes récompenses JcJ";
 	AL["BG/Open PvP Rewards"] = "CdB / Récompenses JcJ mondial";
 	AL["Misc. Rewards"] = "Récompenses diverses";
 	AL["Level 10-19 Rewards"] = "Récompenses niveau 10-19";
@@ -877,9 +885,6 @@ if AL then
 	--AL["Herod/Mograine"] = true,
 	AL["Scarlet Protector/Guardsman"] = "Protecteur/Gardien écarlate";
 	AL["Shadowforge Flame Keeper"] = "Gardien des flammes Ombreforge";
-	AL["Shadow of Doom"] = "Ombre funeste";
-	AL["Bone Witch"] = "Sorcière des ossements";
-	AL["Lumbering Horror"] = "Horreur chancelante";
 	AL["Avatar of the Martyred"] = "Avatar des martyrs";
 	AL["Nexus Stalker"] = "Traqueur du nexus";
 	AL["Auchenai Monk"] = "Moine auchenaï";
@@ -939,12 +944,6 @@ if AL then
 	AL["Gorgolon the All-seeing"] = "Gorgolon l'Omnivoyant";
 	AL["Matron Li-sahar"] = "Matrone Li-sahar";
 	AL["Solus the Eternal"] = "Solus l'Éternel";
-	--AL["Balzaphon"] = true,
-	AL["Lord Blackwood"] = "Seigneur Noirbois";
-	--AL["Revanchion"] = true,
-	--AL["Scorn"] = true,
-	--AL["Sever"] = true,
-	AL["Lady Falther'ess"] = "Dame Falther'ess";
 	AL["Smokywood Pastures Vendor"] = "Vendeurs de Gourmandises Fumebois";
 	--AL["Shartuul"] = true,
 	AL["Darkscreecher Akkarai"] = "Akkarai le Hurle-sombre";
@@ -987,9 +986,11 @@ if AL then
 	AL["Time-Lost Proto Drake"] = "Rênes de proto-drake perdu dans le temps";
 	AL["Razzashi Raptor"] = "Raptor Razzashi";
 	AL["Deviate Ravager/Deviate Guardian"] = "Ravageur déviant/Gardien déviant";
-	--AL["Servant's Quarter Animal Bosses"] = true;
-	--AL["Jadefang"] = true; -- à traduire
+	--AL["Servant's Quarter Animal Bosses"] = true; -- à traduire
+	AL["Jadefang"] = "Jadecroc";
 	--AL["Aeonaxx"] = true; -- à traduire
+	--AL["Prince Sarsarun"] = true;
+	-- AL["Highlord Kruul"] = true; -- added until decided if the set gets removed -- à traduire
 
 	-- Zones
 	--AL["World Drop"] = true,

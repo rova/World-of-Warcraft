@@ -1,6 +1,6 @@
 
 DBM_CORE_NEED_SUPPORT				= "Are you good with programming or languages? If yes, the DBM team needs your help to keep DBM the best boss mod for WoW. Join the team by visiting www.deadlybossmods.com or sending a message to tandanu@deadlybossmods.com or nitram@deadlybossmods.com."
-DBM_HOW_TO_USE_MOD					= "Welcome to DBM. To access options type /dbm in your chat to begin configuration. Load specific zones manually to configure any boss specific settings to your liking as well. DBM tries to do this for you by scanning your spec on first run, but some might want additional options turned on anyways. Many users request warnings that already exist but are just off by default for certain specs and often overlooked. Especially tank related ones."
+DBM_HOW_TO_USE_MOD					= "Welcome to DBM. To access options type /dbm in your chat to begin configuration. Load specific zones manually to configure any boss specific settings to your liking as well. DBM tries to do this for you by scanning your spec on first run, but some might want additional options turned on anyways."
 
 DBM_CORE_LOAD_MOD_ERROR				= "Error while loading boss mods for %s: %s"
 DBM_CORE_LOAD_MOD_SUCCESS			= "Loaded '%s' boss mods. For more options, type /dbm in your chat."
@@ -150,7 +150,7 @@ DBM_CORE_AUTO_ANNOUNCE_OPTIONS = {
 DBM_CORE_AUTO_SPEC_WARN_OPTIONS = {
 	spell 		= "Show special warning for $spell:%d",
 	dispel 		= "Show special warning to dispel/spellsteal \n $spell:%d",
-	interupt	= "Show special warning to interupt $spell:%d",
+	interrupt	= "Show special warning to interrupt $spell:%d",
 	you 		= "Show special warning when you are affected by \n $spell:%d",
 	target 		= "Show special warning when someone is affected by \n $spell:%d",
 	close 		= "Show special warning when someone close to you is \n affected by $spell:%d",
@@ -163,7 +163,7 @@ DBM_CORE_AUTO_SPEC_WARN_OPTIONS = {
 DBM_CORE_AUTO_SPEC_WARN_TEXTS = {
 	spell = "%s!",
 	dispel = "%s on %%s - dispel now",
-	interupt = "%s - interupt now",
+	interrupt = "%s - interrupt now",
 	you = "%s on you",
 	target = "%s on %%s",
 	close = "%s on %%s near you",

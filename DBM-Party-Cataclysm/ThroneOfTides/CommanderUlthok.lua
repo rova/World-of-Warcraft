@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("CommanderUlthok", "DBM-Party-Cataclysm", 9)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 4544 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 4707 $"):sub(12, -3))
 mod:SetCreatureID(40765)
 mod:SetZone()
 
@@ -21,7 +21,7 @@ local warnCurse			= mod:NewTargetAnnounce(76094, 2)
 local timerDarkFissure		= mod:NewCastTimer(2, 76047)
 local timerDarkFissureCD	= mod:NewCDTimer(20, 76047)
 local timerSqueeze		= mod:NewTargetTimer(6, 76026)
-local timerSqueezeCD		= mod:NewCDTimer(30, 76026)
+local timerSqueezeCD		= mod:NewCDTimer(29, 76026)
 local timerEnrage		= mod:NewBuffActiveTimer(10, 76100)
 local timerEnrageCast		= mod:NewCastTimer(2.5, 76100)
 local timerCurse		= mod:NewTargetTimer(15, 76094)

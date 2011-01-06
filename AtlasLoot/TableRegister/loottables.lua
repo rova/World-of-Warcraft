@@ -89,8 +89,8 @@ AtlasLoot_LootTableRegister = {
 
 		["TheVortexPinnacle"] = {
 			["Bosses"] = {
-				{ "VPAltarius", 3 },
-				{ "VPErtan", 4 },
+				{ "VPErtan", 3 },
+				{ "VPAltarius", 4 },
 				{ "VPAsimalAkir", 5 },
 				{ "VPTrash", 7 },
 			},
@@ -150,7 +150,7 @@ AtlasLoot_LootTableRegister = {
 		["BlackwingDescent"] = {
 			["Bosses"] = {
 				{ "BDMagmaw", 2 },
-				{ "BDOmnitron", 3 },
+				{ "BDOmnotron", 3 },
 				{ "BDMaloriak", 4 },
 				{ "BDAtramedes", 5 },
 				{ "BDChimaeron", 6 },

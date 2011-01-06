@@ -67,8 +67,7 @@ L:SetTimerLocalization({
 
 L:SetMiscLocalization({
 	BgStart60 = "Der Kampf um das Alteractal beginnt in 1 Minute.",
-	BgStart30 = "Der Kampf um das Alteractal beginnt in 30 Sekunden.",
-	ZoneName = "Alteractal",
+	BgStart30 = "Der Kampf um das Alteractal beginnt in 30 Sekunden."
 })
 
 L:SetOptionLocalization({
@@ -90,7 +89,6 @@ L:SetGeneralLocalization({
 L:SetMiscLocalization({
 	BgStart60 = "Die Schlacht um das Arathibecken beginnt in 1 Minute.",
 	BgStart30 = "Die Schlacht um das Arathibecken beginnt in 30 Sekunden.",
-	ZoneName = "Arathibecken",
 	ScoreExpr = "(%d+)/1600",
 	Alliance = "Allianz",
 	Horde = "Horde",
@@ -160,7 +158,6 @@ L:SetGeneralLocalization({
 L:SetMiscLocalization({
 	BgStart60 = "Der Kampf um die Kriegshymnenschlucht beginnt in 1 Minute.",
 	BgStart30 = "Der Kampf um die Kriegshymnenschlucht beginnt in 30 Sekunden. Haltet Euch bereit!",
-	ZoneName = "Kriegshymnenschlucht",
 	Alliance = "Allianz",
 	Horde = "Horde",	
 	InfoErrorText = "Die Zielauswahlfunktion für den Flaggenträger wird bei Kampfende wiederhergestellt.",
@@ -213,7 +210,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	ZoneName		= "Insel der Eroberung",
 	BgStart60		= "Die Schlacht beginnt in 60 Sekunden.",
 	BgStart30		= "Die Schlacht beginnt in 30 Sekunden.",
 	BgStart15		= "Die Schlacht beginnt in 15 Sekunden.",
@@ -228,3 +224,37 @@ L:SetMiscLocalization({
 	GoblinBrokenHorde	= "Schon wieder kaputt?! Ich werde es richten... Ihr solltet allerdings nicht davon ausgehen, dass das noch unter die Garantie fällt."
 })
 
+------------------
+--  Twin Peaks  --
+------------------
+L = DBM:GetModLocalization("TwinPeaks")
+
+L:SetGeneralLocalization({
+	name = "Zwillingsgipfel"
+})
+
+L:SetMiscLocalization({
+	BgStart60 = "Der Kampf um die Kriegshymnenschlucht beginnt in 1 Minute.",
+	BgStart30 = "Der Kampf um die Kriegshymnenschlucht beginnt in 30 Sekunden. Haltet Euch bereit!",
+	Alliance = "Allianz",
+	Horde = "Horde",	
+	InfoErrorText = "Die Zielauswahlfunktion für den Flaggenträger wird bei Kampfende wiederhergestellt.",
+	ExprFlagPickUp = "(.*) hat die Flagge der (%w+) aufgenommen!",
+	ExprFlagCaptured = "(.+) hat die Flagge der (%w+) errungen!",
+	ExprFlagReturn = "Die Flagge der (%w+) wurde von (.+) zu ihrem Stützpunkt zurückgebracht!",
+	FlagAlliance = "Allianz-Flagge: ",
+	FlagHorde = "Horde-Flagge: ",
+	FlagBase = "Basis"
+})
+
+L:SetTimerLocalization({
+	TimerStart = "Spiel startet in", 
+	TimerFlag = "Flaggen-Respawn"
+})
+
+L:SetOptionLocalization({
+	TimerStart  = "Zeige Starttimer",
+	TimerFlag = "Zeige Timer für Flaggen-Respawn",
+	ShowFlagCarrier = "Zeige Flaggenträger",
+	ShowFlagCarrierErrorNote = "Zeige Fehlermeldung wenn Flaggenträger-Zielauswahl nicht gesetzt werden kann"
+})

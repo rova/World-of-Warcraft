@@ -1,4 +1,4 @@
--- $Id: constants.en.lua 3111 2010-12-05 07:40:07Z celellach $
+-- $Id: constants.en.lua 3146 2010-12-20 12:15:37Z celellach $
 --[[
 constants.en.lua
 This file defines an AceLocale table for all the various text strings needed
@@ -399,6 +399,9 @@ if AL then
 	AL["Transmutes"] = true;
 	AL["Flasks"] = true;
 
+	-- Blacksmithing
+	AL["Cataclysm Vendor Sold Plans"] = true;
+
 	-- Enchanting
 	AL["Enchant Boots"] = true;
 	AL["Enchant Bracer"] = true;
@@ -409,6 +412,7 @@ if AL then
 	AL["Enchant Shield"] = true;
 	AL["Enchant 2H Weapon"] = true;
 	AL["Enchant Weapon"] = true;
+	AL["Cataclysm Vendor Sold Formulas"] = true;
 
 	-- Inscription
 	AL["Major Glyph"] = true;
@@ -880,9 +884,6 @@ if AL then
 	AL["Herod/Mograine"] = true;
 	AL["Scarlet Protector/Guardsman"] = true;
 	AL["Shadowforge Flame Keeper"] = true;
-	AL["Shadow of Doom"] = true;
-	AL["Bone Witch"] = true;
-	AL["Lumbering Horror"] = true;
 	AL["Avatar of the Martyred"] = true;
 	AL["Nexus Stalker"] = true;
 	AL["Auchenai Monk"] = true;
@@ -942,12 +943,6 @@ if AL then
 	AL["Gorgolon the All-seeing"] = true;
 	AL["Matron Li-sahar"] = true;
 	AL["Solus the Eternal"] = true;
-	AL["Balzaphon"] = true;
-	AL["Lord Blackwood"] = true;
-	AL["Revanchion"] = true;
-	AL["Scorn"] = true;
-	AL["Sever"] = true;
-	AL["Lady Falther'ess"] = true;
 	AL["Smokywood Pastures Vendor"] = true;
 	AL["Shartuul"] = true;
 	AL["Darkscreecher Akkarai"] = true;
@@ -994,6 +989,8 @@ if AL then
 	AL["Jadefang"] = true;
 	AL["Aeonaxx"] = true;
 	AL["Prince Sarsarun"] = true;
+	AL["Highlord Kruul"] = true; -- added until decided if the set gets removed
+	AL["Dormus the Camel-Hoarder"] = true; 
 
 	-- Zones
 	AL["World Drop"] = true;

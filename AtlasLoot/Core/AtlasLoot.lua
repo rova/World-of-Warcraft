@@ -16,7 +16,7 @@ local BabbleFaction = AtlasLoot_GetLocaleLibBabble("LibBabble-Faction-3.0")
 --Establish version number and compatible version of Atlas
 local VERSION_MAJOR = "6";
 local VERSION_MINOR = "01";
-local VERSION_BOSSES = "01";
+local VERSION_BOSSES = "02";
 ATLASLOOT_VERSION = "|cffFF8400AtlasLoot Enhanced v"..VERSION_MAJOR.."."..VERSION_MINOR.."."..VERSION_BOSSES.."|r";
 ATLASLOOT_VERSION_NUM = VERSION_MAJOR.."."..VERSION_MINOR.."."..VERSION_BOSSES
 
@@ -228,9 +228,9 @@ function AtlasLoot:OnInitialize()
 		EquipCompare_RegisterTooltip(AtlasLootTooltip)
 	end
 
-	if (self.db.profile.LoadAllLoDStartup == true) then
+	--if (self.db.profile.LoadAllLoDStartup == true) then
 		AtlasLoot:LoadModule("all")
-	end
+	--end
 	collectgarbage("collect")
     --if LibStub:GetLibrary("LibAboutPanel", true) then
         --LibStub("LibAboutPanel").new(AL["AtlasLoot"], "AtlasLoot");

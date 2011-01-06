@@ -65,8 +65,7 @@ L:SetTimerLocalization({
 
 L:SetMiscLocalization({
 	BgStart60	= "1 minute until the battle for Alterac Valley begins.",
-	BgStart30	= "30 seconds until the battle for Alterac Valley begins.",
-	ZoneName	= "Alterac Valley"
+	BgStart30	= "30 seconds until the battle for Alterac Valley begins."
 })
 
 L:SetOptionLocalization({
@@ -86,9 +85,8 @@ L:SetGeneralLocalization({
 })
 
 L:SetMiscLocalization({
-	BgStart60	= "The Battle for Arathi Basin will begin in 1 minute.",
-	BgStart30	= "The Battle for Arathi Basin will begin in 30 seconds.",
-	ZoneName	= "Arathi Basin",
+	BgStart60	= "The battle will begin in 1 minute.",
+	BgStart30	= "The battle will begin in 30 seconds.",
 	ScoreExpr	= "(%d+)/1600",
 	Alliance	= "Alliance",
 	Horde		= "Horde",
@@ -156,9 +154,8 @@ L:SetGeneralLocalization({
 })
 
 L:SetMiscLocalization({
-	BgStart60 			= "The battle for Warsong Gulch begins in 1 minute.",
-	BgStart30 			= "The battle for Warsong Gulch begins in 30 seconds. Prepare yourselves!",
-	ZoneName 			= "Warsong Gulch",
+	BgStart60 			= "The battle begins in 1 minute.",
+	BgStart30 			= "The battle begins in 30 seconds.  Prepare yourselves!",
 	Alliance 			= "Alliance",
 	Horde 				= "Horde",	
 	InfoErrorText		= "The flag carrier targeting function will be restored when you are out of combat.",
@@ -211,7 +208,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	ZoneName				= "Isle of Conquest",
 	BgStart60				= "The battle will begin in 60 seconds.",
 	BgStart30				= "The battle will begin in 30 seconds.",
 	BgStart15				= "The battle will begin in 15 seconds.",
@@ -226,3 +222,38 @@ L:SetMiscLocalization({
 	GoblinBrokenHorde		= "It's broken again?! I'll fix it... just don't expect the warranty to cover this"
 })
 
+------------------
+--  Twin Peaks  --
+------------------
+L = DBM:GetModLocalization("TwinPeaks")
+
+L:SetGeneralLocalization({
+	name = "Twin Peaks"
+})
+
+L:SetMiscLocalization({
+	BgStart60 			= "The battle begins in 1 minute.",
+	BgStart30 			= "The battle begins in 30 seconds.  Prepare yourselves!",
+	ZoneName 			= "Twin",
+	Alliance 			= "Alliance",
+	Horde 				= "Horde",	
+	InfoErrorText		= "The flag carrier targeting function will be restored when you are out of combat.",
+	ExprFlagPickUp		= "The (%w+) .lag was picked up by (.+)!",
+	ExprFlagCaptured	= "(.+) captured the (%w+) flag!",
+	ExprFlagReturn		= "The (%w+) .lag was returned to its base by (.+)!",
+	FlagAlliance		= "Alliance Flag: ",
+	FlagHorde			= "Horde Flag: ",
+	FlagBase			= "Base"
+})
+
+L:SetTimerLocalization({
+	TimerStart	= "Game starts", 
+	TimerFlag	= "Flag respawn"
+})
+
+L:SetOptionLocalization({
+	TimerStart					= "Show start timer",
+	TimerFlag					= "Show flag respawn timer",
+	ShowFlagCarrier				= "Show flag carrier",
+	ShowFlagCarrierErrorNote	= "Show flag carrier error message while in combat"
+})

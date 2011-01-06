@@ -38,7 +38,7 @@ L:SetGeneralLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerSuperheated 	= "$spell:75846 (%d)"	-- should work, no need for translation :)
+	TimerSuperheated 	= "Superheated Armor (%d)"
 })
 
 L:SetOptionLocalization({
@@ -114,6 +114,15 @@ L:SetGeneralLocalization({
 	name = "\"Captain\" Cookie"
 })
 
+----------------------
+-- Vanessa VanCleef --
+----------------------
+L = DBM:GetModLocalization("Vanessa")
+
+L:SetGeneralLocalization({
+	name = "Vanessa VanCleef"
+})
+
 ------------------
 --  Grim Batol  --
 ---------------------
@@ -142,6 +151,11 @@ L = DBM:GetModLocalization("DrahgaShadowburner")
 L:SetGeneralLocalization({
 	name = "Drahga Shadowburner"
 })
+
+L:SetMiscLocalization{
+	ValionaYell	= "Dragon, you will do as I command! Catch me!",	-- Yell when Valiona is incoming
+	Valiona		= "Valiona"
+}
 
 ------------
 -- Erudax --
@@ -238,7 +252,7 @@ L:SetGeneralLocalization({
 
 ------------------------------------
 -- Siamat, Lord of the South Wind --
--------------------
+------------------------------------
 L = DBM:GetModLocalization("Siamat")
 
 L:SetGeneralLocalization({
@@ -254,6 +268,15 @@ L:SetGeneralLocalization({
 	name = "High Prophet Barim"
 })
 
+L:SetOptionLocalization{
+	BossHealthAdds	= "Show health of adds in the Boss Health Frame"
+}
+
+L:SetMiscLocalization{
+	BlazeHeavens		= "Blaze of the Heavens",
+	HarbringerDarkness	= "Harbringer of Darkness"
+}
+
 --------------
 -- Lockmaw --
 --------------
@@ -261,6 +284,19 @@ L = DBM:GetModLocalization("Lockmaw")
 
 L:SetGeneralLocalization({
 	name = "Lockmaw"
+})
+
+L:SetOptionLocalization{
+	RangeFrame	= "Show Range Frame (5 yards)"
+}
+
+----------
+-- Augh --
+----------
+L = DBM:GetModLocalization("Augh")
+
+L:SetGeneralLocalization({
+	name = "Augh"		-- he is fightable after Lockmaw :o
 })
 
 -----------------------
@@ -301,6 +337,15 @@ L:SetGeneralLocalization({
 	name = "Lord Walden"
 })
 
+L:SetWarningLocalization{
+	specWarnCoagulant	= "Green Mix - Keep Moving!",	-- Green light
+	specWarnRedMix		= "Red Mix - Do Not Move!"		-- Red light
+}
+
+L:SetOptionLocalization{
+	RedLightGreenLight	= "Show special warnings for Red/Green movement queues"
+}
+
 ------------------
 -- Lord Godfrey --
 ------------------
@@ -309,6 +354,14 @@ L = DBM:GetModLocalization("Godfrey")
 L:SetGeneralLocalization({
 	name = "Lord Godfrey"
 })
+
+L:SetWarningLocalization{
+	WarnMortalWound	= "%s on >%s< (%d)"		-- Mortal Wound on >args.destName< (args.amount)
+}
+
+L:SetOptionLocalization{
+	WarnMortalWound	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(93675, GetSpellInfo(93675) or "unknown")
+}
 
 ---------------------
 --  The Stonecore  --
@@ -356,6 +409,14 @@ L:SetGeneralLocalization({
 	name = "Slabhide"
 })
 
+L:SetWarningLocalization({
+	specWarnCrystalStorm		= "Crystal Storm - Take cover"
+})
+
+L:SetOptionLocalization({
+	specWarnCrystalStorm		= "Show special warning for $spell:92265"
+})
+
 -------------------------
 -- High Priestess Azil --
 ------------------------
@@ -377,12 +438,16 @@ L:SetGeneralLocalization({
 })
 
 --------------
--- Altarius --
+-- Altairus --
 -------------- 
-L = DBM:GetModLocalization("Altarius")
+L = DBM:GetModLocalization("Altairus")
 
 L:SetGeneralLocalization({
-	name = "Altarius"
+	name = "Altairus"
+})
+
+L:SetOptionLocalization({
+	BreathIcon	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(88308)
 })
 
 -----------

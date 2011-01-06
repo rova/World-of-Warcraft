@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("ErunakStonespeaker", "DBM-Party-Cataclysm", 9)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 4544 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 4828 $"):sub(12, -3))
 mod:SetCreatureID(40825, 40788)		-- 40788 = Mindbender Ghur'sha
 mod:SetZone()
 
@@ -17,7 +17,7 @@ mod:RegisterEvents(
 local warnLavaBolt		= mod:NewCastAnnounce(76171, 2)
 local warnMagmaSplash		= mod:NewTargetAnnounce(76170, 3)
 local warnEmberstrike		= mod:NewTargetAnnounce(76165, 3)
-local warnEarthShards		= mod:NewSpellAnnounce(84931, 2)
+local warnEarthShards		= mod:NewTargetAnnounce(84931, 2)
 local warnPhase2		= mod:NewPhaseAnnounce(2)
 local warnEnslave		= mod:NewTargetAnnounce(76207, 2)
 local warnAbsorbMagic		= mod:NewSpellAnnounce(76307, 4)
@@ -31,8 +31,18 @@ local timerAbsorbMagic		= mod:NewBuffActiveTimer(3, 76307)
 local timerMindFog		= mod:NewBuffActiveTimer(20, 76234)
 local timerAgony		= mod:NewTargetTimer(10, 76339)
 
-local specWarnLavaBolt		= mod:NewSpecialWarningInterupt(76171)
-local specWarnAbsorbMagic	= mod:NewSpecialWarningCast(76307)	-- should be Stop all damage now!  instead of Stop casting
+local specWarnLavaBolt		= mod:NewSpecialWarningInterrupt(76171)
+local specWarnAbsorbMagic	= mod:NewSpecialWarningCast(76307)
+local specWarnEarthShards	= mod:NewSpecialWarningYou(84931)
+
+function mod:EarthShardsTarget()
+	local targetname = self:GetBossTarget(40852)
+	if not targetname then return end
+	warnEarthShards:Show(targetname)
+	if targetname == UnitName("player") then
+		specWarnEarthShards:Show()
+	end
+end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(76170) then
@@ -71,7 +81,7 @@ function mod:SPELL_CAST_START(args)
 		timerLavaBolt:Start()
 		specWarnLavaBolt:Show()
 	elseif args:IsSpellID(84931) then
-		warnEarthShards:Show()
+		self:ScheduleMethod(0.1, "EarthShardsTarget")
 	elseif args:IsSpellID(76307, 91492) then
 		warnAbsorbMagic:Show(76307)
 		specWarnAbsorbMagic:Show()

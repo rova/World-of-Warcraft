@@ -67,8 +67,7 @@ L:SetTimerLocalization({
 
 L:SetMiscLocalization({
 	BgStart60 	= "알터랙 계곡 전투 개시 1분 전...",
-	BgStart30 	= "알터랙 계곡 전투 개시 30초 전...",
-	ZoneName 	= "알터랙 계곡"
+	BgStart30 	= "알터랙 계곡 전투 개시 30초 전..."
 })
 
 L:SetOptionLocalization({
@@ -90,7 +89,6 @@ L:SetGeneralLocalization({
 L:SetMiscLocalization({
 	BgStart60 		= "1분 후 아라시 분지 전투가 시작됩니다.",
 	BgStart30 		= "30초 후 아라시 분지 전투가 시작됩니다.",
-	ZoneName		= "아라시 분지",
 	ScoreExpr 		= "(%d+)/1600",
 	Alliance 		= "얼라이언스",
 	Horde 			= "호드",
@@ -160,7 +158,6 @@ L:SetGeneralLocalization({
 L:SetMiscLocalization({
 	BgStart60 = "1분 후 전쟁노래 협곡 전투가 시작됩니다!",
 	BgStart30 = "30초 후 전쟁노래 협곡 전투가 시작됩니다. 준비하십시오!",
-	ZoneName = "전쟁노래 협곡",
 	Alliance = "얼라이언스",
 	Horde = "호드",	
 	InfoErrorText 		= "전투에서 벗어나면 깃발 운반자 타겟팅 기능이 복구됩니다.",
@@ -214,7 +211,6 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	ZoneName				= "정복의 섬",
 	BgStart60				= "60초 후 전투가 시작됩니다.",
 	BgStart30				= "30초 후 전투가 시작됩니다.",
 	BgStart15				= "15초 후 전투가 시작됩니다.",
@@ -229,3 +225,38 @@ L:SetMiscLocalization({
 	GoblinBrokenHorde		= "It's broken again?! I'll fix it... just don't expect the warranty to cover this"	
 })
 
+------------------
+--  Twin Peaks  --
+------------------
+L = DBM:GetModLocalization("TwinPeaks")
+
+L:SetGeneralLocalization({
+	name = "Twin Peaks"
+})
+
+L:SetMiscLocalization({
+	BgStart60 			= "The battle begins in 1 minute.",
+	BgStart30 			= "The battle begins in 30 seconds.  Prepare yourselves!",
+	ZoneName 			= "Twin",
+	Alliance 			= "Alliance",
+	Horde 				= "Horde",	
+	InfoErrorText		= "The flag carrier targeting function will be restored when you are out of combat.",
+	ExprFlagPickUp		= "The (%w+) .lag was picked up by (.+)!",
+	ExprFlagCaptured	= "(.+) captured the (%w+) flag!",
+	ExprFlagReturn		= "The (%w+) .lag was returned to its base by (.+)!",
+	FlagAlliance		= "Alliance Flag: ",
+	FlagHorde			= "Horde Flag: ",
+	FlagBase			= "Base"
+})
+
+L:SetTimerLocalization({
+	TimerStart	= "Game starts", 
+	TimerFlag	= "Flag respawn"
+})
+
+L:SetOptionLocalization({
+	TimerStart					= "Show start timer",
+	TimerFlag					= "Show flag respawn timer",
+	ShowFlagCarrier				= "Show flag carrier",
+	ShowFlagCarrierErrorNote	= "Show flag carrier error message while in combat"
+})

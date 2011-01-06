@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("Ozruk", "DBM-Party-Cataclysm", 7)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 4518 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 4816 $"):sub(12, -3))
 mod:SetCreatureID(42188)
 mod:SetZone()
 
@@ -9,25 +9,30 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
 	"SPELL_AURA_APPLIED",
+	"SPELL_AURA_REMOVED",
 	"SPELL_CAST_START",
 	"UNIT_HEALTH"
 )
 
-local warnSpikeBarrage		= mod:NewSoonAnnounce(78807, 2)
-local warnBulwark		= mod:NewSpellAnnounce(78939, 3)
+local warnShatter			= mod:NewSpellAnnounce(78807, 3)
+local warnBulwark			= mod:NewSpellAnnounce(78939, 3)
 local warnGroundSlam		= mod:NewCastAnnounce(78903, 4)
-local warnEnrage		= mod:NewSpellAnnounce(80467, 3)
+local warnEnrage			= mod:NewSpellAnnounce(80467, 3)
 local warnEnrageSoon		= mod:NewSoonAnnounce(80467, 2)
 
-local timerSpikeBarrage		= mod:NewCDTimer(19, 78807)
-local timerBulwark		= mod:NewBuffActiveTimer(10, 78939)
+local warnGroundSlam		= mod:NewCastAnnounce(78903, 4)
+local specWarnGroundSlam	= mod:NewSpecialWarningCast(78903, mod:IsTank())
+local specWarnShatter		= mod:NewSpecialWarningCast(92662, mod:IsMelee())
+
+--local timerShatter			= mod:NewCDTimer(19, 78807)
+local timerBulwark			= mod:NewBuffActiveTimer(10, 78939)
 local timerBulwarkCD		= mod:NewCDTimer(22, 78939)
 local timerGroundSlam		= mod:NewCastTimer(3, 78903)
-local timerGroundSlamCD		= mod:NewCDTimer(12, 78903)
+--local timerGroundSlamCD		= mod:NewCDTimer(12, 78903)
 
-local specWarnGroundSlam	= mod:NewSpecialWarningCast(78903, nil) --mod:IsMelee())
+local soundShatter			= mod:NewSound(92662, nil, mod:IsMelee())
 
-local prewarnEnrage
+local prewarnEnrage = false
 
 -- Spike Barrage CD shortened when enraged ??
 
@@ -38,22 +43,30 @@ end
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(80467) then
 		warnEnrage:Show()
-	elseif args:IsSpellID(78939) then
+	elseif args:IsSpellID(78939, 92659) then
 		warnBulwark:Show()
 		timerBulwark:Start()
 		timerBulwarkCD:Start()
 	end
 end
 
+function mod:SPELL_AURA_REMOVED(args)
+	if args:IsSpellID(78939, 92659) then--This can be dispelled.
+		timerBulwark:Cancel()
+	end
+end
+
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(78807) then
-		warnSpikeBarrage:Schedule(15)
-		timerSpikeBarrage:Start()
-	elseif args:IsSpellID(78903) then
+	if args:IsSpellID(78807, 92662) then
+		warnShatter:Show()
+--		timerShatter:Start()
+		specWarnShatter:Show()
+		soundShatter:Play()
+	elseif args:IsSpellID(78903, 92410) then
 		warnGroundSlam:Show()
 		specWarnGroundSlam:Show()
 		timerGroundSlam:Start()
-		timerGroundSlamCD:Start()
+--		timerGroundSlamCD:Start()
 	end
 end
 

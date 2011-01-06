@@ -1,7 +1,7 @@
 ﻿if GetLocale() ~= "zhTW" then return end
 
 DBM_CORE_NEED_SUPPORT				= "嘿, 你是否擁有良好的程式開發或語言能力? 如果是的話, DBM團隊真的需要你的幫助以保持成為WOW入面最佳的首領模組。觀看 www.deadlybossmods.com 或發送郵件到 tandanu@deadlybossmods.com 或 nitram@deadlybossmods.com 來加入團隊。"
-DBM_HOW_TO_USE_MOD				= "歡迎使用DBM。在聊天頻道輸入 /dbm 打開設定開始設定。你可以載入特定區域後為任何首領設定你喜歡的特別設置。DBM會在第一次啟動時嘗試掃描你的職業天賦，但有些選項你可能想打開。許多用戶要求的警告已經存在，但只是預設關閉某些職業天賦(尤其是坦克相關的)或往往被忽視的設定。"
+DBM_HOW_TO_USE_MOD				= "歡迎使用DBM。在聊天頻道輸入 /dbm 打開設定開始設定。你可以載入特定區域後為任何首領設定你喜歡的特別設置。DBM會在第一次啟動時嘗試掃描你的職業天賦，但有些選項你可能想打開。"
 
 DBM_CORE_LOAD_MOD_ERROR				= "載入%s模組時發生錯誤：%s"
 DBM_CORE_LOAD_MOD_SUCCESS			= "成功載入%s模組。輸入/dbm有更多選項。"
@@ -150,7 +150,7 @@ DBM_CORE_AUTO_ANNOUNCE_OPTIONS = {
 DBM_CORE_AUTO_SPEC_WARN_OPTIONS = {
 	spell					= "為$spell:%d顯示特別警告",
 	dispel					= "需對$spell:%d驅散/竊取時顯示特別警告",
-	interupt				= "需對$spell:%d斷法時顯示特別警告",
+	interrupt				= "需對$spell:%d斷法時顯示特別警告",
 	you					= "當你中了$spell:%d時顯示特別警告",
 	target					= "當有人中了$spell:%d時顯示特別警告",
 	close					= "當你附近有人中了$spell:%d時顯示特別警告",
@@ -163,7 +163,7 @@ DBM_CORE_AUTO_SPEC_WARN_OPTIONS = {
 DBM_CORE_AUTO_SPEC_WARN_TEXTS = {
 	spell					= "%s!",
 	dispel					= "%%s中了%s - 現在驅散",
-	interupt				= "%s - 現在斷法",
+	interrupt				= "%s - 現在斷法",
 	you					= "你中了%s",
 	target					= "%%s中了%s",
 	close					= "你附近的%%s中了%s",

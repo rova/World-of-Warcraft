@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("Rajh", "DBM-Party-Cataclysm", 4)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision:$"):sub(12, -3))
+mod:SetRevision(("$Revision: 4828 $"):sub(12, -3))
 mod:SetCreatureID(39378)
 mod:SetZone()
 
@@ -21,7 +21,7 @@ local warnSunStrike	= mod:NewSpellAnnounce(73872, 3)
 local timerBlessing	= mod:NewBuffActiveTimer(23, 76355)
 local timerSunStrike	= mod:NewCDTimer(27, 73872)
 
-local specWarnSunOrb	= mod:NewSpecialWarningInterupt(80352)
+local specWarnSunOrb	= mod:NewSpecialWarningInterrupt(80352)
 
 local spamBlessing = 0
 function mod:OnCombatStart(delay)

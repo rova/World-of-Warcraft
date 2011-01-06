@@ -1,9 +1,10 @@
 local mod	= DBM:NewMod("Argaloth", "DBM-BaradinHold", 1)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision$"):sub(12, -3))
+mod:SetRevision(("$Revision: 4821 $"):sub(12, -3))
 mod:SetCreatureID(47120)
 mod:SetZone()
+mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
 
 mod:RegisterCombat("combat")
 
@@ -14,13 +15,17 @@ mod:RegisterEvents(
 	"UNIT_HEALTH"
 )
 
-local warnConsuming		= mod:NewTargetAnnounce(88954, 3)
+local warnConsuming			= mod:NewTargetAnnounce(88954, 3)
 local warnMeteorSlash		= mod:NewSpellAnnounce(88942, 4)
-local warnFirestorm		= mod:NewSpellAnnounce(88972, 4)
-local warnFirestormSoon		= mod:NewAnnounce(WarnFirestormSoon, 3)
+local warnFirestorm			= mod:NewSpellAnnounce(88972, 4)
+local warnFirestormSoon		= mod:NewAnnounce("WarnFirestormSoon", 3, 88972)
 
-local timerConsuming		= mod:NewTargetTimer(15, 88954)
-local timerConsumingCD		= mod:NewCDTimer(22, 88954)
+local specWarnMeteorSlash	= mod:NewSpecialWarningSpell(88942, mod:IsTank())
+local specWarnFirestormCast	= mod:NewSpecialWarningSpell(88972)
+local specWarnFirestorm		= mod:NewSpecialWarningMove(89000)
+
+local timerConsuming		= mod:NewBuffActiveTimer(15, 88954)
+local timerConsumingCD		= mod:NewCDTimer(24, 88954)
 local timerMeteorSlash		= mod:NewNextTimer(16.5, 88942)
 local timerMeteorSlashCast	= mod:NewCastTimer(1.25, 88942)
 local timerFirestorm		= mod:NewBuffActiveTimer(15, 88972)
@@ -31,7 +36,9 @@ mod:AddBoolOption("SetIconOnConsuming", true)
 
 local consumingTargets = {}
 local consumingIcon = 8
-local prewarnedFirestorm
+local prewarnedFirestorm = false
+local spamMeteor = 0
+local consuming = 0
 
 local function showConsumingWarning()
 	warnConsuming:Show(table.concat(consumingTargets, "<, >"))
@@ -44,13 +51,16 @@ function mod:OnCombatStart(delay)
 	table.wipe(consumingTargets)
 	consumingIcon = 8
 	berserkTimer:Start(-delay)
+	spamMeteor = 0
+	consuming = 0
 end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(88954, 95173) then
-		timerConsuming:Start(args.destName)
+	consuming = consuming + 1--Count raid members who got consuming
+		timerConsuming:Start()
 		timerConsumingCD:Start()
-		consumingTargets[#consumingTargets] = args.destName
+		consumingTargets[#consumingTargets + 1] = args.destName
 		if self.Options.SetIconOnConsuming then
 			self:SetIcon(args.destName, consumingIcon)
 			consumingIcon = consumingIcon - 1
@@ -59,16 +69,27 @@ function mod:SPELL_AURA_APPLIED(args)
 		if mod:IsDifficulty("normal10") and #consumingTargets >= 3 then
 			showConsumingWarning()
 		else
-			self:Schedule(0.3, showConsumingWarning())
+			self:Schedule(0.3, showConsumingWarning)
 		end
 	elseif args:IsSpellID(88972) then
 		timerFirestorm:Start()
+	elseif args:IsSpellID(88942, 95172) then--Debuff application not cast, special warning for tank taunts.
+		if GetTime() - spamMeteor >= 4 then
+			spamMeteor = GetTime()
+			specWarnMeteorSlash:Show()
+		end
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
 	if args:IsSpellID(88954, 95173) then
-		timerConsuming:Cancel(args.destName)
+		consuming = consuming - 1--Count raid members who had it dispelled
+		if self.Options.SetIconOnConsuming then
+			self:SetIcon(args.destName, 0)
+		end
+		if consuming == 0 then--End Buff active timer when no raid members have it
+			timerConsuming:Cancel()
+		end
 	elseif args:IsSpellID(88972) then
 		timerMeteorSlash:Start(13)
 		timerConsumingCD:Start(9)
@@ -82,8 +103,19 @@ function mod:SPELL_CAST_START(args)
 		timerMeteorSlash:Start()
 	elseif args:IsSpellID(88972) then
 		warnFirestorm:Show()
+		specWarnFirestormCast:Show()
 		timerMeteorSlash:Cancel()
 		timerConsumingCD:Cancel()
+	end
+end
+
+do
+	local lastFlames = 0
+	function mod:SPELL_DAMAGE(args)
+		if args:IsSpellID(89000, 95177) and GetTime() - lastFlames > 3 then -- Flames on ground from Firestorm
+			specWarnFirestorm:Show()
+			lastFlames = GetTime()
+		end
 	end
 end
 
